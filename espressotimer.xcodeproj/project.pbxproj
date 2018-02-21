@@ -1,0 +1,838 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		393132AB203DDCCA00759652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393132AA203DDCCA00759652 /* AppDelegate.swift */; };
+		393132AD203DDCCA00759652 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393132AC203DDCCA00759652 /* ViewController.swift */; };
+		393132B0203DDCCA00759652 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 393132AE203DDCCA00759652 /* Main.storyboard */; };
+		393132B2203DDCCA00759652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 393132B1203DDCCA00759652 /* Assets.xcassets */; };
+		393132B5203DDCCA00759652 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 393132B3203DDCCA00759652 /* LaunchScreen.storyboard */; };
+		393132C0203DDCCA00759652 /* espressotimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393132BF203DDCCA00759652 /* espressotimerTests.swift */; };
+		393132CB203DDCCA00759652 /* espressotimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393132CA203DDCCA00759652 /* espressotimerUITests.swift */; };
+		393132D0203DDCCA00759652 /* espressotimer WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 393132CF203DDCCA00759652 /* espressotimer WatchKit App.app */; };
+		393132D6203DDCCA00759652 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 393132D4203DDCCA00759652 /* Interface.storyboard */; };
+		393132D8203DDCCA00759652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 393132D7203DDCCA00759652 /* Assets.xcassets */; };
+		393132DF203DDCCA00759652 /* espressotimer WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 393132DE203DDCCA00759652 /* espressotimer WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		393132E4203DDCCB00759652 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393132E3203DDCCB00759652 /* InterfaceController.swift */; };
+		393132E6203DDCCB00759652 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393132E5203DDCCB00759652 /* ExtensionDelegate.swift */; };
+		393132E8203DDCCB00759652 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393132E7203DDCCB00759652 /* NotificationController.swift */; };
+		393132EA203DDCCB00759652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 393132E9203DDCCB00759652 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		393132BC203DDCCA00759652 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3931329F203DDCCA00759652 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 393132A6203DDCCA00759652;
+			remoteInfo = espressotimer;
+		};
+		393132C7203DDCCA00759652 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3931329F203DDCCA00759652 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 393132A6203DDCCA00759652;
+			remoteInfo = espressotimer;
+		};
+		393132D1203DDCCA00759652 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3931329F203DDCCA00759652 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 393132CE203DDCCA00759652;
+			remoteInfo = "espressotimer WatchKit App";
+		};
+		393132E0203DDCCB00759652 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3931329F203DDCCA00759652 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 393132DD203DDCCA00759652;
+			remoteInfo = "espressotimer WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		393132F2203DDCCB00759652 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				393132DF203DDCCA00759652 /* espressotimer WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393132F6203DDCCB00759652 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				393132D0203DDCCA00759652 /* espressotimer WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		393132A7203DDCCA00759652 /* espressotimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = espressotimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		393132AA203DDCCA00759652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		393132AC203DDCCA00759652 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		393132AF203DDCCA00759652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		393132B1203DDCCA00759652 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		393132B4203DDCCA00759652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		393132B6203DDCCA00759652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		393132BB203DDCCA00759652 /* espressotimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = espressotimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		393132BF203DDCCA00759652 /* espressotimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = espressotimerTests.swift; sourceTree = "<group>"; };
+		393132C1203DDCCA00759652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		393132C6203DDCCA00759652 /* espressotimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = espressotimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		393132CA203DDCCA00759652 /* espressotimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = espressotimerUITests.swift; sourceTree = "<group>"; };
+		393132CC203DDCCA00759652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		393132CF203DDCCA00759652 /* espressotimer WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "espressotimer WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		393132D5203DDCCA00759652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		393132D7203DDCCA00759652 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		393132D9203DDCCA00759652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		393132DE203DDCCA00759652 /* espressotimer WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "espressotimer WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		393132E3203DDCCB00759652 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		393132E5203DDCCB00759652 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		393132E7203DDCCB00759652 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		393132E9203DDCCB00759652 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		393132EB203DDCCB00759652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		393132EC203DDCCB00759652 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		393132A4203DDCCA00759652 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393132B8203DDCCA00759652 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393132C3203DDCCA00759652 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393132DB203DDCCA00759652 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3931329E203DDCCA00759652 = {
+			isa = PBXGroup;
+			children = (
+				393132A9203DDCCA00759652 /* espressotimer */,
+				393132BE203DDCCA00759652 /* espressotimerTests */,
+				393132C9203DDCCA00759652 /* espressotimerUITests */,
+				393132D3203DDCCA00759652 /* espressotimer WatchKit App */,
+				393132E2203DDCCB00759652 /* espressotimer WatchKit Extension */,
+				393132A8203DDCCA00759652 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		393132A8203DDCCA00759652 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				393132A7203DDCCA00759652 /* espressotimer.app */,
+				393132BB203DDCCA00759652 /* espressotimerTests.xctest */,
+				393132C6203DDCCA00759652 /* espressotimerUITests.xctest */,
+				393132CF203DDCCA00759652 /* espressotimer WatchKit App.app */,
+				393132DE203DDCCA00759652 /* espressotimer WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		393132A9203DDCCA00759652 /* espressotimer */ = {
+			isa = PBXGroup;
+			children = (
+				393132AA203DDCCA00759652 /* AppDelegate.swift */,
+				393132AC203DDCCA00759652 /* ViewController.swift */,
+				393132AE203DDCCA00759652 /* Main.storyboard */,
+				393132B1203DDCCA00759652 /* Assets.xcassets */,
+				393132B3203DDCCA00759652 /* LaunchScreen.storyboard */,
+				393132B6203DDCCA00759652 /* Info.plist */,
+			);
+			path = espressotimer;
+			sourceTree = "<group>";
+		};
+		393132BE203DDCCA00759652 /* espressotimerTests */ = {
+			isa = PBXGroup;
+			children = (
+				393132BF203DDCCA00759652 /* espressotimerTests.swift */,
+				393132C1203DDCCA00759652 /* Info.plist */,
+			);
+			path = espressotimerTests;
+			sourceTree = "<group>";
+		};
+		393132C9203DDCCA00759652 /* espressotimerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				393132CA203DDCCA00759652 /* espressotimerUITests.swift */,
+				393132CC203DDCCA00759652 /* Info.plist */,
+			);
+			path = espressotimerUITests;
+			sourceTree = "<group>";
+		};
+		393132D3203DDCCA00759652 /* espressotimer WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				393132D4203DDCCA00759652 /* Interface.storyboard */,
+				393132D7203DDCCA00759652 /* Assets.xcassets */,
+				393132D9203DDCCA00759652 /* Info.plist */,
+			);
+			path = "espressotimer WatchKit App";
+			sourceTree = "<group>";
+		};
+		393132E2203DDCCB00759652 /* espressotimer WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				393132E3203DDCCB00759652 /* InterfaceController.swift */,
+				393132E5203DDCCB00759652 /* ExtensionDelegate.swift */,
+				393132E7203DDCCB00759652 /* NotificationController.swift */,
+				393132E9203DDCCB00759652 /* Assets.xcassets */,
+				393132EB203DDCCB00759652 /* Info.plist */,
+				393132EC203DDCCB00759652 /* PushNotificationPayload.apns */,
+			);
+			path = "espressotimer WatchKit Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		393132A6203DDCCA00759652 /* espressotimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 393132F7203DDCCB00759652 /* Build configuration list for PBXNativeTarget "espressotimer" */;
+			buildPhases = (
+				393132A3203DDCCA00759652 /* Sources */,
+				393132A4203DDCCA00759652 /* Frameworks */,
+				393132A5203DDCCA00759652 /* Resources */,
+				393132F6203DDCCB00759652 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				393132D2203DDCCA00759652 /* PBXTargetDependency */,
+			);
+			name = espressotimer;
+			productName = espressotimer;
+			productReference = 393132A7203DDCCA00759652 /* espressotimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		393132BA203DDCCA00759652 /* espressotimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 393132FA203DDCCB00759652 /* Build configuration list for PBXNativeTarget "espressotimerTests" */;
+			buildPhases = (
+				393132B7203DDCCA00759652 /* Sources */,
+				393132B8203DDCCA00759652 /* Frameworks */,
+				393132B9203DDCCA00759652 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				393132BD203DDCCA00759652 /* PBXTargetDependency */,
+			);
+			name = espressotimerTests;
+			productName = espressotimerTests;
+			productReference = 393132BB203DDCCA00759652 /* espressotimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		393132C5203DDCCA00759652 /* espressotimerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 393132FD203DDCCB00759652 /* Build configuration list for PBXNativeTarget "espressotimerUITests" */;
+			buildPhases = (
+				393132C2203DDCCA00759652 /* Sources */,
+				393132C3203DDCCA00759652 /* Frameworks */,
+				393132C4203DDCCA00759652 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				393132C8203DDCCA00759652 /* PBXTargetDependency */,
+			);
+			name = espressotimerUITests;
+			productName = espressotimerUITests;
+			productReference = 393132C6203DDCCA00759652 /* espressotimerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		393132CE203DDCCA00759652 /* espressotimer WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 393132F3203DDCCB00759652 /* Build configuration list for PBXNativeTarget "espressotimer WatchKit App" */;
+			buildPhases = (
+				393132CD203DDCCA00759652 /* Resources */,
+				393132F2203DDCCB00759652 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				393132E1203DDCCB00759652 /* PBXTargetDependency */,
+			);
+			name = "espressotimer WatchKit App";
+			productName = "espressotimer WatchKit App";
+			productReference = 393132CF203DDCCA00759652 /* espressotimer WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		393132DD203DDCCA00759652 /* espressotimer WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 393132EF203DDCCB00759652 /* Build configuration list for PBXNativeTarget "espressotimer WatchKit Extension" */;
+			buildPhases = (
+				393132DA203DDCCA00759652 /* Sources */,
+				393132DB203DDCCA00759652 /* Frameworks */,
+				393132DC203DDCCA00759652 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "espressotimer WatchKit Extension";
+			productName = "espressotimer WatchKit Extension";
+			productReference = 393132DE203DDCCA00759652 /* espressotimer WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3931329F203DDCCA00759652 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Hans-Wilhelm Warlo";
+				TargetAttributes = {
+					393132A6203DDCCA00759652 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					393132BA203DDCCA00759652 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 393132A6203DDCCA00759652;
+					};
+					393132C5203DDCCA00759652 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 393132A6203DDCCA00759652;
+					};
+					393132CE203DDCCA00759652 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					393132DD203DDCCA00759652 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 393132A2203DDCCA00759652 /* Build configuration list for PBXProject "espressotimer" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3931329E203DDCCA00759652;
+			productRefGroup = 393132A8203DDCCA00759652 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				393132A6203DDCCA00759652 /* espressotimer */,
+				393132BA203DDCCA00759652 /* espressotimerTests */,
+				393132C5203DDCCA00759652 /* espressotimerUITests */,
+				393132CE203DDCCA00759652 /* espressotimer WatchKit App */,
+				393132DD203DDCCA00759652 /* espressotimer WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		393132A5203DDCCA00759652 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393132B5203DDCCA00759652 /* LaunchScreen.storyboard in Resources */,
+				393132B2203DDCCA00759652 /* Assets.xcassets in Resources */,
+				393132B0203DDCCA00759652 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393132B9203DDCCA00759652 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393132C4203DDCCA00759652 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393132CD203DDCCA00759652 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393132D8203DDCCA00759652 /* Assets.xcassets in Resources */,
+				393132D6203DDCCA00759652 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393132DC203DDCCA00759652 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393132EA203DDCCB00759652 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		393132A3203DDCCA00759652 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393132AD203DDCCA00759652 /* ViewController.swift in Sources */,
+				393132AB203DDCCA00759652 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393132B7203DDCCA00759652 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393132C0203DDCCA00759652 /* espressotimerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393132C2203DDCCA00759652 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393132CB203DDCCA00759652 /* espressotimerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393132DA203DDCCA00759652 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393132E8203DDCCB00759652 /* NotificationController.swift in Sources */,
+				393132E6203DDCCB00759652 /* ExtensionDelegate.swift in Sources */,
+				393132E4203DDCCB00759652 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		393132BD203DDCCA00759652 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 393132A6203DDCCA00759652 /* espressotimer */;
+			targetProxy = 393132BC203DDCCA00759652 /* PBXContainerItemProxy */;
+		};
+		393132C8203DDCCA00759652 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 393132A6203DDCCA00759652 /* espressotimer */;
+			targetProxy = 393132C7203DDCCA00759652 /* PBXContainerItemProxy */;
+		};
+		393132D2203DDCCA00759652 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 393132CE203DDCCA00759652 /* espressotimer WatchKit App */;
+			targetProxy = 393132D1203DDCCA00759652 /* PBXContainerItemProxy */;
+		};
+		393132E1203DDCCB00759652 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 393132DD203DDCCA00759652 /* espressotimer WatchKit Extension */;
+			targetProxy = 393132E0203DDCCB00759652 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		393132AE203DDCCA00759652 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				393132AF203DDCCA00759652 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		393132B3203DDCCA00759652 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				393132B4203DDCCA00759652 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		393132D4203DDCCA00759652 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				393132D5203DDCCA00759652 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		393132ED203DDCCB00759652 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		393132EE203DDCCB00759652 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		393132F0203DDCCB00759652 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S83QX8883Y;
+				INFOPLIST_FILE = "espressotimer WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.espressotimer.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		393132F1203DDCCB00759652 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S83QX8883Y;
+				INFOPLIST_FILE = "espressotimer WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.espressotimer.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		393132F4203DDCCB00759652 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S83QX8883Y;
+				IBSC_MODULE = espressotimer_WatchKit_Extension;
+				INFOPLIST_FILE = "espressotimer WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.espressotimer.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		393132F5203DDCCB00759652 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S83QX8883Y;
+				IBSC_MODULE = espressotimer_WatchKit_Extension;
+				INFOPLIST_FILE = "espressotimer WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.espressotimer.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		393132F8203DDCCB00759652 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S83QX8883Y;
+				INFOPLIST_FILE = espressotimer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.espressotimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		393132F9203DDCCB00759652 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S83QX8883Y;
+				INFOPLIST_FILE = espressotimer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.espressotimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		393132FB203DDCCB00759652 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S83QX8883Y;
+				INFOPLIST_FILE = espressotimerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.espressotimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/espressotimer.app/espressotimer";
+			};
+			name = Debug;
+		};
+		393132FC203DDCCB00759652 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S83QX8883Y;
+				INFOPLIST_FILE = espressotimerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.espressotimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/espressotimer.app/espressotimer";
+			};
+			name = Release;
+		};
+		393132FE203DDCCB00759652 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S83QX8883Y;
+				INFOPLIST_FILE = espressotimerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.espressotimerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = espressotimer;
+			};
+			name = Debug;
+		};
+		393132FF203DDCCB00759652 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S83QX8883Y;
+				INFOPLIST_FILE = espressotimerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.espressotimerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = espressotimer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		393132A2203DDCCA00759652 /* Build configuration list for PBXProject "espressotimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				393132ED203DDCCB00759652 /* Debug */,
+				393132EE203DDCCB00759652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		393132EF203DDCCB00759652 /* Build configuration list for PBXNativeTarget "espressotimer WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				393132F0203DDCCB00759652 /* Debug */,
+				393132F1203DDCCB00759652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		393132F3203DDCCB00759652 /* Build configuration list for PBXNativeTarget "espressotimer WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				393132F4203DDCCB00759652 /* Debug */,
+				393132F5203DDCCB00759652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		393132F7203DDCCB00759652 /* Build configuration list for PBXNativeTarget "espressotimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				393132F8203DDCCB00759652 /* Debug */,
+				393132F9203DDCCB00759652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		393132FA203DDCCB00759652 /* Build configuration list for PBXNativeTarget "espressotimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				393132FB203DDCCB00759652 /* Debug */,
+				393132FC203DDCCB00759652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		393132FD203DDCCB00759652 /* Build configuration list for PBXNativeTarget "espressotimerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				393132FE203DDCCB00759652 /* Debug */,
+				393132FF203DDCCB00759652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3931329F203DDCCA00759652 /* Project object */;
+}
