@@ -26,11 +26,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.run()
-        self.click(nil)
     }
     
     @IBAction func click(_ sender: Any?) {
+        self.run()
         running = !running
         if running {
             button.setTitle("RESET", for: .normal)
@@ -39,6 +38,8 @@ class ViewController: UIViewController {
             button.setTitle("START", for: .normal)
             timer?.invalidate()
             timer = nil
+            time = 0.0
+            timerLabel.text = "0.0"
         }
     }
     
@@ -57,12 +58,16 @@ class ViewController: UIViewController {
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
         do {
+            try self.recordingSession.setCategory(AVAudioSessionCategoryRecord)
             try recorder = AVAudioRecorder(url: getDocumentsDirectory(), settings: settings)
+            try self.recordingSession.setActive(true)
             recorder!.isMeteringEnabled = true
             if !recorder!.prepareToRecord() {
+                self.loadFailUI()
                 print("Error: AVAudioRecorder prepareToRecord failed")
             }
         } catch {
+            self.loadFailUI()
             print("Error: AVAudioRecorder creation failed")
         }
     }
@@ -72,21 +77,18 @@ class ViewController: UIViewController {
         recorder?.updateMeters()
     }
     
+    func stop() {
+        recorder?.stop()
+        recorder?.deleteRecording()
+    }
+    
     func loadRecordingUI() {
-        button.setTitle("YEY", for: .normal)
-        do {
-            try self.recordingSession.setCategory(AVAudioSessionCategoryRecord)
-            try self.recordingSession.setActive(true)
-            self.initRecorder()
-            self.start()
-        } catch {
-            self.loadFailUI()
-        }
-        
+        self.initRecorder()
+        self.start()
     }
     
     func loadFailUI() {
-        button.setTitle("NAY", for: .normal)
+        timerLabel.text = "NO MIC"
     }
     
     @objc func update() {

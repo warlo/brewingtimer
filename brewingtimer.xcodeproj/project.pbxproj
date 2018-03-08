@@ -22,6 +22,7 @@
 		393132E6203DDCCB00759652 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393132E5203DDCCB00759652 /* ExtensionDelegate.swift */; };
 		393132E8203DDCCB00759652 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393132E7203DDCCB00759652 /* NotificationController.swift */; };
 		393132EA203DDCCB00759652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 393132E9203DDCCB00759652 /* Assets.xcassets */; };
+		39F15F4D2045F0E20030634F /* SecondInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F15F4C2045F0E20030634F /* SecondInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		393132E9203DDCCB00759652 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		393132EB203DDCCB00759652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		393132EC203DDCCB00759652 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		39F15F4C2045F0E20030634F /* SecondInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				393132E3203DDCCB00759652 /* InterfaceController.swift */,
+				39F15F4C2045F0E20030634F /* SecondInterfaceController.swift */,
 				393132E5203DDCCB00759652 /* ExtensionDelegate.swift */,
 				393132E7203DDCCB00759652 /* NotificationController.swift */,
 				393132E9203DDCCB00759652 /* Assets.xcassets */,
@@ -343,7 +346,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 393132A2203DDCCA00759652 /* Build configuration list for PBXProject "espressotimer" */;
+			buildConfigurationList = 393132A2203DDCCA00759652 /* Build configuration list for PBXProject "brewingtimer" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -442,6 +445,7 @@
 				393132E8203DDCCB00759652 /* NotificationController.swift in Sources */,
 				393132E6203DDCCB00759652 /* ExtensionDelegate.swift in Sources */,
 				393132E4203DDCCB00759652 /* InterfaceController.swift in Sources */,
+				39F15F4D2045F0E20030634F /* SecondInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,7 +649,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S83QX8883Y;
 				IBSC_MODULE = espressotimer_WatchKit_Extension;
@@ -656,7 +660,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.1;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
 		};
@@ -664,7 +668,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S83QX8883Y;
 				IBSC_MODULE = espressotimer_WatchKit_Extension;
@@ -675,7 +679,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.1;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -780,7 +784,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		393132A2203DDCCA00759652 /* Build configuration list for PBXProject "espressotimer" */ = {
+		393132A2203DDCCA00759652 /* Build configuration list for PBXProject "brewingtimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				393132ED203DDCCB00759652 /* Debug */,

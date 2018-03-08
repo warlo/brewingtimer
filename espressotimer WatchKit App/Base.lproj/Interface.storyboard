@@ -25,7 +25,7 @@
                                 <action selector="click" destination="AgC-eL-Hgc" id="7At-RJ-p6F"/>
                             </connections>
                         </button>
-                        <label height="42" alignment="center" verticalAlignment="center" text="00:00" id="qwe-ku-uzS">
+                        <label height="42" alignment="center" verticalAlignment="center" text="0.0" id="qwe-ku-uzS">
                             <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="48"/>
                         </label>
                         <label height="42" alignment="center" verticalAlignment="center" text="0" id="YVU-Hx-eTv">
@@ -45,11 +45,27 @@
         <!--Interface Controller-->
         <scene sceneID="m3W-NE-hnM">
             <objects>
-                <controller id="Gxu-0b-dLs">
+                <controller id="Gxu-0b-dLs" customClass="InterfaceController" customModule="espressotimer_WatchKit_Extension">
                     <items>
-                        <slider width="1" alignment="left" verticalAlignment="center" value="1" maximum="3" steps="3" id="Clw-dP-P97"/>
+                        <switch width="1" alignment="left" value="YES" title="Use mic" id="aF8-sd-fHG">
+                            <connections>
+                                <action selector="toggleMic:" destination="Gxu-0b-dLs" id="aZy-OU-4L1"/>
+                            </connections>
+                        </switch>
                         <label height="20" alignment="left" text="Sensitivity" id="yvj-FS-Hel"/>
+                        <slider width="1" alignment="left" verticalAlignment="center" value="-30" minimum="-60" maximum="-10" steps="10" id="Clw-dP-P97">
+                            <connections>
+                                <action selector="sensitivityChange:" destination="Gxu-0b-dLs" id="pne-P6-MvW"/>
+                            </connections>
+                        </slider>
+                        <label height="42" alignment="center" verticalAlignment="center" text="-40db" id="d2q-ZW-dp7">
+                            <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="36"/>
+                        </label>
                     </items>
+                    <connections>
+                        <outlet property="sensitivity" destination="Clw-dP-P97" id="yJ1-zt-1wo"/>
+                        <outlet property="test" destination="d2q-ZW-dp7" id="rMg-zW-2dp"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="505" y="351"/>

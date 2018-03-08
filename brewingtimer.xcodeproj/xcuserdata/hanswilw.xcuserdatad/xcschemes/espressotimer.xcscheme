@@ -17,7 +17,7 @@
                BlueprintIdentifier = "393132A6203DDCCA00759652"
                BuildableName = "espressotimer.app"
                BlueprintName = "espressotimer"
-               ReferencedContainer = "container:espressotimer.xcodeproj">
+               ReferencedContainer = "container:brewingtimer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,7 +36,7 @@
                BlueprintIdentifier = "393132BA203DDCCA00759652"
                BuildableName = "espressotimerTests.xctest"
                BlueprintName = "espressotimerTests"
-               ReferencedContainer = "container:espressotimer.xcodeproj">
+               ReferencedContainer = "container:brewingtimer.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -46,7 +46,7 @@
                BlueprintIdentifier = "393132C5203DDCCA00759652"
                BuildableName = "espressotimerUITests.xctest"
                BlueprintName = "espressotimerUITests"
-               ReferencedContainer = "container:espressotimer.xcodeproj">
+               ReferencedContainer = "container:brewingtimer.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,7 +56,7 @@
             BlueprintIdentifier = "393132A6203DDCCA00759652"
             BuildableName = "espressotimer.app"
             BlueprintName = "espressotimer"
-            ReferencedContainer = "container:espressotimer.xcodeproj">
+            ReferencedContainer = "container:brewingtimer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,7 +80,7 @@
             BlueprintIdentifier = "393132A6203DDCCA00759652"
             BuildableName = "espressotimer.app"
             BlueprintName = "espressotimer"
-            ReferencedContainer = "container:espressotimer.xcodeproj">
+            ReferencedContainer = "container:brewingtimer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,7 +99,7 @@
             BlueprintIdentifier = "393132A6203DDCCA00759652"
             BuildableName = "espressotimer.app"
             BlueprintName = "espressotimer"
-            ReferencedContainer = "container:espressotimer.xcodeproj">
+            ReferencedContainer = "container:brewingtimer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
