@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0920"
-   version = "2.0">
+   version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "393132CE203DDCCA00759652"
-               BuildableName = "espressotimer WatchKit App.app"
-               BlueprintName = "espressotimer WatchKit App"
+               BuildableName = "brewingtimer WatchKit App.app"
+               BlueprintName = "brewingtimer WatchKit App"
                ReferencedContainer = "container:brewingtimer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "393132A6203DDCCA00759652"
-               BuildableName = "espressotimer.app"
-               BlueprintName = "espressotimer"
+               BuildableName = "brewingtimer.app"
+               BlueprintName = "brewingtimer"
                ReferencedContainer = "container:brewingtimer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,8 +48,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "393132CE203DDCCA00759652"
-            BuildableName = "espressotimer WatchKit App.app"
-            BlueprintName = "espressotimer WatchKit App"
+            BuildableName = "brewingtimer WatchKit App.app"
+            BlueprintName = "brewingtimer WatchKit App"
             ReferencedContainer = "container:brewingtimer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -67,7 +67,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
-      launchAutomaticallySubstyle = "8"
       notificationPayloadFile = "espressotimer WatchKit Extension/PushNotificationPayload.apns">
       <RemoteRunnable
          runnableDebuggingMode = "2"
@@ -76,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "393132CE203DDCCA00759652"
-            BuildableName = "espressotimer WatchKit App.app"
-            BlueprintName = "espressotimer WatchKit App"
+            BuildableName = "brewingtimer WatchKit App.app"
+            BlueprintName = "brewingtimer WatchKit App"
             ReferencedContainer = "container:brewingtimer.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
@@ -85,8 +84,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "393132CE203DDCCA00759652"
-            BuildableName = "espressotimer WatchKit App.app"
-            BlueprintName = "espressotimer WatchKit App"
+            BuildableName = "brewingtimer WatchKit App.app"
+            BlueprintName = "brewingtimer WatchKit App"
             ReferencedContainer = "container:brewingtimer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -98,9 +97,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      debugDocumentVersioning = "YES"
-      launchAutomaticallySubstyle = "8"
-      notificationPayloadFile = "espressotimer WatchKit Extension/PushNotificationPayload.apns">
+      debugDocumentVersioning = "YES">
       <RemoteRunnable
          runnableDebuggingMode = "2"
          BundleIdentifier = "com.apple.Carousel"
@@ -108,8 +105,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "393132CE203DDCCA00759652"
-            BuildableName = "espressotimer WatchKit App.app"
-            BlueprintName = "espressotimer WatchKit App"
+            BuildableName = "brewingtimer WatchKit App.app"
+            BlueprintName = "brewingtimer WatchKit App"
             ReferencedContainer = "container:brewingtimer.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
@@ -117,8 +114,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "393132CE203DDCCA00759652"
-            BuildableName = "espressotimer WatchKit App.app"
-            BlueprintName = "espressotimer WatchKit App"
+            BuildableName = "brewingtimer WatchKit App.app"
+            BlueprintName = "brewingtimer WatchKit App"
             ReferencedContainer = "container:brewingtimer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

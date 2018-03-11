@@ -1,6 +1,6 @@
 //
 //  InterfaceController.swift
-//  espressotimer WatchKit Extension
+//  brewingtimer WatchKit Extension
 //
 //  Created by Hans-Wilhelm Warlo on 21/02/2018.
 //  Copyright © 2018 Hans-Wilhelm Warlo. All rights reserved.
@@ -12,33 +12,16 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController {
-
+    
     @IBOutlet var button: WKInterfaceButton!
     @IBOutlet var timerLabel: WKInterfaceLabel!
-    @IBOutlet var mic: WKInterfaceLabel!
-    @IBOutlet var sensitivity: WKInterfaceSlider!
+    @IBOutlet var decibel: WKInterfaceLabel!
     
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     var recorder : AVAudioRecorder? = nil
     
-    var time = 0.0
-    var threshold : Float = -40.0
-    var running = false
-    var timer : Timer?
-    var useMic = true
-    
     @IBOutlet var test: WKInterfaceLabel!
-    
-    @IBAction func sensitivityChange(_ value: Float) {
-        test.setText(String(value) + "db")
-        threshold = value
-    }
-    
-    @IBAction func toggleMic(_ value: Bool) {
-        useMic = value
-        test.setText(String(useMic))
-    }
     
     @IBAction func click() {
         if useMic {
@@ -112,7 +95,7 @@ class InterfaceController: WKInterfaceController {
             if let recorder = recorder {
                 recorder.updateMeters()
                 decibels = recorder.averagePower(forChannel: 0)
-                mic.setText(String(round(decibels)))
+                decibel.setText(String(round(decibels)))
             }
             if decibels > threshold {
                 self.updateTimerLabel()
@@ -160,5 +143,6 @@ class InterfaceController: WKInterfaceController {
     override func willDisappear() {
         super.willDisappear()
     }
-
+    
 }
+

@@ -17,7 +17,7 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="espressotimer_WatchKit_App" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="brewingtimer_WatchKit_Extension">
                     <items>
                         <button width="1" alignment="left" verticalAlignment="bottom" title="START" id="kkT-2t-4hE">
                             <color key="backgroundColor" red="0.33824481864248712" green="0.2290882217057954" blue="0.15184513577385442" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -34,7 +34,7 @@
                     </items>
                     <connections>
                         <outlet property="button" destination="kkT-2t-4hE" id="tLj-gD-u4s"/>
-                        <outlet property="mic" destination="YVU-Hx-eTv" id="j3J-Jf-DPF"/>
+                        <outlet property="decibel" destination="YVU-Hx-eTv" id="2Ql-8d-mDp"/>
                         <outlet property="timerLabel" destination="qwe-ku-uzS" id="kRx-DM-snc"/>
                         <segue destination="Gxu-0b-dLs" kind="relationship" relationship="nextPage" id="aQ8-Yw-ZsJ"/>
                     </connections>
@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="220" y="351"/>
         </scene>
-        <!--Interface Controller-->
+        <!--Second Interface Controller-->
         <scene sceneID="m3W-NE-hnM">
             <objects>
-                <controller id="Gxu-0b-dLs" customClass="InterfaceController" customModule="espressotimer_WatchKit_Extension">
+                <controller id="Gxu-0b-dLs" customClass="SecondInterfaceController" customModule="brewingtimer_WatchKit_Extension">
                     <items>
                         <switch width="1" alignment="left" value="YES" title="Use mic" id="aF8-sd-fHG">
                             <connections>
@@ -63,8 +63,8 @@
                         </label>
                     </items>
                     <connections>
-                        <outlet property="sensitivity" destination="Clw-dP-P97" id="yJ1-zt-1wo"/>
-                        <outlet property="test" destination="d2q-ZW-dp7" id="rMg-zW-2dp"/>
+                        <outlet property="decibel" destination="d2q-ZW-dp7" id="Dww-5w-aPg"/>
+                        <outlet property="sensitivity" destination="Clw-dP-P97" id="p8U-Wv-tN2"/>
                     </connections>
                 </controller>
             </objects>

@@ -1,6 +1,6 @@
 //
 //  ExtensionDelegate.swift
-//  espressotimer WatchKit Extension
+//  brewingtimer WatchKit Extension
 //
 //  Created by Hans-Wilhelm Warlo on 21/02/2018.
 //  Copyright © 2018 Hans-Wilhelm Warlo. All rights reserved.

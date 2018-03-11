@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  espressotimer
+//  brewingtimer
 //
 //  Created by Hans-Wilhelm Warlo on 21/02/2018.
 //  Copyright © 2018 Hans-Wilhelm Warlo. All rights reserved.
@@ -14,18 +14,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var mic: UILabel!
+    @IBOutlet weak var settingsButton: UIButton!
     
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     var recorder : AVAudioRecorder? = nil
-    
-    var time = 0.0
-    var running = false
-    var timer : Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.settingsButton.setTitle(NSString(string: "\u{2699}\u{0000FE0E}") as String, for: UIControlState.normal)
     }
     
     @IBAction func click(_ sender: Any?) {
@@ -98,7 +96,7 @@ class ViewController: UIViewController {
             decibels = recorder.averagePower(forChannel: 0)
             mic.text = String(decibels)
         }
-        if decibels > -30.0 {
+        if decibels > threshold {
             time += 0.1
             timerLabel.text = (String(round(10*time) / 10))
         }

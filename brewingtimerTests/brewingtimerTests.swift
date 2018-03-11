@@ -1,15 +1,15 @@
 //
-//  espressotimerTests.swift
-//  espressotimerTests
+//  brewingtimerTests.swift
+//  brewingtimerTests
 //
 //  Created by Hans-Wilhelm Warlo on 21/02/2018.
 //  Copyright © 2018 Hans-Wilhelm Warlo. All rights reserved.
 //
 
 import XCTest
-@testable import espressotimer
+@testable import brewingtimer
 
-class espressotimerTests: XCTestCase {
+class brewingtimerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
