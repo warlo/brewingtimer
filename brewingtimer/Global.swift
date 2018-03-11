@@ -13,3 +13,5 @@ var threshold : Float = -40.0
 var running = false
 var timer : Timer?
 var useMic = true
+var pauseBelowThreshold = true
+var triggered = false

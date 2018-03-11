@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var mic: UILabel!
+    @IBOutlet weak var decibel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
     
     var recordingSession: AVAudioSession!
@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         running = !running
         if running {
             button.setTitle("RESET", for: .normal)
+            triggered = false
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         } else {
             button.setTitle("START", for: .normal)
@@ -40,6 +41,7 @@ class ViewController: UIViewController {
             timerLabel.text = "0.0"
         }
     }
+    
     
     func getDocumentsDirectory() -> URL {
         let fileManager = FileManager.default
@@ -90,16 +92,27 @@ class ViewController: UIViewController {
     }
     
     @objc func update() {
-        var decibels : Float = -120.0
-        if let recorder = recorder {
-            recorder.updateMeters()
-            decibels = recorder.averagePower(forChannel: 0)
-            mic.text = String(decibels)
+        if useMic {
+            var decibels : Float = -120.0
+            if let recorder = recorder {
+                recorder.updateMeters()
+                decibels = recorder.averagePower(forChannel: 0)
+                decibel.text = String(round(decibels)) + " db"
+            }
+            if triggered || decibels > threshold {
+                if !pauseBelowThreshold {
+                    triggered = true
+                }
+                self.updateTimerLabel()
+            }
+        } else {
+            self.updateTimerLabel()
         }
-        if decibels > threshold {
-            time += 0.1
-            timerLabel.text = (String(round(10*time) / 10))
-        }
+    }
+    
+    func updateTimerLabel() {
+        time += 0.1
+        timerLabel.text = String(round(10*time) / 10)
     }
     
     func run() {
