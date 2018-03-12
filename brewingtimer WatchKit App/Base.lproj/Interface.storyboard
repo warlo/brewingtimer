@@ -28,8 +28,8 @@
                         <label height="42" alignment="center" verticalAlignment="center" text="0.0" id="qwe-ku-uzS">
                             <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="48"/>
                         </label>
-                        <label height="42" alignment="center" verticalAlignment="center" text="0" id="YVU-Hx-eTv">
-                            <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="48"/>
+                        <label height="42" alignment="center" verticalAlignment="center" text="0 db" id="YVU-Hx-eTv">
+                            <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="20"/>
                         </label>
                     </items>
                     <connections>
@@ -47,24 +47,26 @@
             <objects>
                 <controller id="Gxu-0b-dLs" customClass="SecondInterfaceController" customModule="brewingtimer_WatchKit_Extension">
                     <items>
+                        <label height="20" alignment="left" text="Sensitivity   -40.0db" baselineAdjustment="alignCenters" minimumScaleFactor="0.40000000000000002" id="yvj-FS-Hel"/>
+                        <slider width="1" alignment="left" value="-30" minimum="-60" maximum="-10" steps="10" id="Clw-dP-P97">
+                            <connections>
+                                <action selector="sensitivityChange:" destination="Gxu-0b-dLs" id="pne-P6-MvW"/>
+                            </connections>
+                        </slider>
                         <switch width="1" alignment="left" value="YES" title="Use mic" id="aF8-sd-fHG">
                             <connections>
                                 <action selector="toggleMic:" destination="Gxu-0b-dLs" id="aZy-OU-4L1"/>
                             </connections>
                         </switch>
-                        <label height="20" alignment="left" text="Sensitivity" id="yvj-FS-Hel"/>
-                        <slider width="1" alignment="left" verticalAlignment="center" value="-30" minimum="-60" maximum="-10" steps="10" id="Clw-dP-P97">
+                        <switch width="1" alignment="left" value="YES" title="Pause below threshold" id="kN7-cm-v9K">
                             <connections>
-                                <action selector="sensitivityChange:" destination="Gxu-0b-dLs" id="pne-P6-MvW"/>
+                                <action selector="togglePause:" destination="Gxu-0b-dLs" id="o2H-qK-2i3"/>
                             </connections>
-                        </slider>
-                        <label height="42" alignment="center" verticalAlignment="center" text="-40db" id="d2q-ZW-dp7">
-                            <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="36"/>
-                        </label>
+                        </switch>
                     </items>
                     <connections>
-                        <outlet property="decibel" destination="d2q-ZW-dp7" id="Dww-5w-aPg"/>
                         <outlet property="sensitivity" destination="Clw-dP-P97" id="p8U-Wv-tN2"/>
+                        <outlet property="sensitivityLabel" destination="yvj-FS-Hel" id="wcc-yK-jUz"/>
                     </connections>
                 </controller>
             </objects>

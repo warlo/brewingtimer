@@ -15,6 +15,7 @@ class SecondInterfaceController: WKInterfaceController {
     
     @IBOutlet var mic: WKInterfaceLabel!
     @IBOutlet var sensitivity: WKInterfaceSlider!
+    @IBOutlet var sensitivityLabel: WKInterfaceLabel!
     @IBOutlet var decibel: WKInterfaceLabel!
     
     override func awake(withContext context: Any?) {
@@ -34,14 +35,16 @@ class SecondInterfaceController: WKInterfaceController {
     }
     
     @IBAction func sensitivityChange(_ value: Float) {
-        decibel.setText(String(value) + "db")
+        sensitivityLabel.setText("Sensitivity   " + String(value) + "db")
         threshold = value
     }
     
     @IBAction func toggleMic(_ value: Bool) {
         useMic = value
-        decibel.setText(String(useMic))
     }
     
+    @IBAction func togglePause(_ value: Bool) {
+        pauseBelowThreshold = value
+    }
 }
 

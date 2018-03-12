@@ -11,14 +11,13 @@ import AVFoundation
 import Foundation
 
 
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
     
     @IBOutlet var button: WKInterfaceButton!
     @IBOutlet var timerLabel: WKInterfaceLabel!
     @IBOutlet var decibel: WKInterfaceLabel!
     
     var recordingSession: AVAudioSession!
-    var audioRecorder: AVAudioRecorder!
     var recorder : AVAudioRecorder? = nil
     
     @IBOutlet var test: WKInterfaceLabel!
@@ -31,6 +30,8 @@ class InterfaceController: WKInterfaceController {
         
         running = !running
         if running {
+            triggered = false
+            button.setTitle("RESET")
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         } else {
             button.setTitle("START")
@@ -58,7 +59,8 @@ class InterfaceController: WKInterfaceController {
         do {
             try self.recordingSession.setCategory(AVAudioSessionCategoryRecord)
             try self.recordingSession.setActive(true)
-            try recorder = AVAudioRecorder(url: getDocumentsDirectory(), settings: settings)
+            recorder = try AVAudioRecorder(url: getDocumentsDirectory(), settings: settings)
+            recorder!.delegate = self
             recorder!.isMeteringEnabled = true
             if !recorder!.prepareToRecord() {
                 self.loadFailUI()
@@ -76,8 +78,16 @@ class InterfaceController: WKInterfaceController {
     }
     
     func stop() {
+
         recorder?.stop()
         recorder?.deleteRecording()
+        recorder = nil
+        do {
+            try self.recordingSession.setActive(false)
+        } catch {
+            print("asd")
+        }
+        recordingSession = nil
     }
     
     func loadRecordingUI() {
@@ -95,9 +105,12 @@ class InterfaceController: WKInterfaceController {
             if let recorder = recorder {
                 recorder.updateMeters()
                 decibels = recorder.averagePower(forChannel: 0)
-                decibel.setText(String(round(decibels)))
+                decibel.setText(String(round(decibels)) + " db")
             }
-            if decibels > threshold {
+            if triggered || decibels > threshold {
+                if !pauseBelowThreshold {
+                    triggered = true
+                }
                 self.updateTimerLabel()
             }
         } else {
