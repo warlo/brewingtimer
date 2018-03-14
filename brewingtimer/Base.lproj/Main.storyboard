@@ -191,19 +191,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="94.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Microphone sensitivity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMu-1k-bra">
-                                                    <rect key="frame" x="20" y="4" width="195.66666666666666" height="34"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Microphone sensitivity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMu-1k-bra">
+                                                    <rect key="frame" x="20" y="10" width="195.66666666666666" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-40" minValue="-70" maxValue="-10" translatesAutoresizingMaskIntoConstraints="NO" id="taM-2C-2QE">
-                                                    <rect key="frame" x="18" y="43" width="378" height="30"/>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-40" minValue="-70" maxValue="-10" translatesAutoresizingMaskIntoConstraints="NO" id="taM-2C-2QE">
+                                                    <rect key="frame" x="18" y="42" width="378" height="31"/>
                                                     <connections>
                                                         <action selector="sensitivityChange:" destination="878-Pa-hXm" eventType="valueChanged" id="Osq-Sx-Rcb"/>
                                                     </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-40db" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tz-7z-1KG">
-                                                    <rect key="frame" x="333" y="6" width="57" height="24"/>
+                                                    <rect key="frame" x="333" y="10" width="57" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -211,10 +211,12 @@
                                             <constraints>
                                                 <constraint firstItem="taM-2C-2QE" firstAttribute="top" secondItem="GMu-1k-bra" secondAttribute="bottom" constant="8" id="KxN-jn-hZM"/>
                                                 <constraint firstAttribute="trailing" secondItem="2tz-7z-1KG" secondAttribute="trailing" constant="24" id="M3B-cc-Thi"/>
+                                                <constraint firstItem="GMu-1k-bra" firstAttribute="leading" secondItem="fuU-gU-DUL" secondAttribute="leading" constant="20" id="Nqb-nu-bf5"/>
+                                                <constraint firstItem="2tz-7z-1KG" firstAttribute="top" secondItem="fuU-gU-DUL" secondAttribute="top" constant="10" id="Ond-gr-HnV"/>
                                                 <constraint firstItem="taM-2C-2QE" firstAttribute="centerX" secondItem="fuU-gU-DUL" secondAttribute="centerX" id="bgF-ka-AoE"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="taM-2C-2QE" secondAttribute="trailing" id="fId-9S-yPp"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="2tz-7z-1KG" secondAttribute="trailing" id="j8O-E1-knj"/>
-                                                <constraint firstItem="2tz-7z-1KG" firstAttribute="top" secondItem="fuU-gU-DUL" secondAttribute="top" constant="6" id="ytr-yJ-Zbb"/>
+                                                <constraint firstItem="GMu-1k-bra" firstAttribute="top" secondItem="fuU-gU-DUL" secondAttribute="top" constant="10" id="uHM-zh-pCo"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

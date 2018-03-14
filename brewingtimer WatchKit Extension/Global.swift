@@ -15,3 +15,4 @@ var timer : Timer?
 var useMic = true
 var pauseBelowThreshold = true
 var triggered = false
+var active = false

@@ -19,30 +19,15 @@ class ViewController: UIViewController {
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     var recorder : AVAudioRecorder? = nil
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.settingsButton.setTitle(NSString(string: "\u{2699}\u{0000FE0E}") as String, for: UIControlState.normal)
-    }
     
     @IBAction func click(_ sender: Any?) {
-        self.run()
-        running = !running
-        if running {
-            button.setTitle("RESET", for: .normal)
-            triggered = false
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        if !running {
+            self.run()
         } else {
-            button.setTitle("START", for: .normal)
-            timer?.invalidate()
-            timer = nil
-            time = 0.0
-            timerLabel.text = "0.0"
+            self.stop()
         }
     }
-    
-    
+
     func getDocumentsDirectory() -> URL {
         let fileManager = FileManager.default
         let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
@@ -59,8 +44,8 @@ class ViewController: UIViewController {
         ]
         do {
             try self.recordingSession.setCategory(AVAudioSessionCategoryRecord)
-            try recorder = AVAudioRecorder(url: getDocumentsDirectory(), settings: settings)
             try self.recordingSession.setActive(true)
+            recorder = try AVAudioRecorder(url: getDocumentsDirectory(), settings: settings)
             recorder!.isMeteringEnabled = true
             if !recorder!.prepareToRecord() {
                 self.loadFailUI()
@@ -78,13 +63,30 @@ class ViewController: UIViewController {
     }
     
     func stop() {
+        button.setTitle("START", for: .normal)
+        timer?.invalidate()
+        timer = nil
+        time = 0.0
+        timerLabel.text = "0.0"
+        running = false
+        triggered = false
         recorder?.stop()
         recorder?.deleteRecording()
+        do {
+            try recordingSession.setActive(false);
+        } catch {
+            self.loadFailUI()
+        }
     }
     
     func loadRecordingUI() {
-        self.initRecorder()
-        self.start()
+        triggered = false
+        button.setTitle("RESET", for: .normal)
+        if useMic {
+            self.initRecorder()
+            self.start()
+        }
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func loadFailUI() {
@@ -116,17 +118,27 @@ class ViewController: UIViewController {
     }
     
     func run() {
-        recordingSession = AVAudioSession.sharedInstance()
-        
-        recordingSession.requestRecordPermission () {
-            [unowned self] allowed in
-            if allowed {
-                self.loadRecordingUI()
-            }
-            else {
-                self.loadFailUI()
+        if !running {
+            running = true
+            recordingSession = AVAudioSession.sharedInstance()
+            recordingSession.requestRecordPermission () {
+                [unowned self] allowed in
+                if allowed {
+                    self.loadRecordingUI()
+                }
+                else {
+                    self.loadFailUI()
+                }
             }
         }
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        self.settingsButton.setTitle(NSString(string: "\u{2699}\u{0000FE0E}") as String, for: UIControlState.normal)
+        self.run()
     }
     
     override func didReceiveMemoryWarning() {

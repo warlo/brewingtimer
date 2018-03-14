@@ -1,4 +1,4 @@
-//
+    //
 //  InterfaceController.swift
 //  brewingtimer WatchKit Extension
 //
@@ -23,22 +23,10 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
     @IBOutlet var test: WKInterfaceLabel!
     
     @IBAction func click() {
-        if useMic {
+        if !running {
             self.run()
-        }
-        WKInterfaceDevice.current().play(.success)
-        
-        running = !running
-        if running {
-            triggered = false
-            button.setTitle("RESET")
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         } else {
-            button.setTitle("START")
-            timer?.invalidate()
-            timer = nil
-            time = 0.0
-            timerLabel.setText(String(0.0))
+            self.stop()
         }
     }
     
@@ -78,21 +66,30 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
     }
     
     func stop() {
-
+        button.setTitle("START")
+        timer?.invalidate()
+        timer = nil
+        time = 0.0
+        timerLabel.setText(String(0.0))
+        running = false
+        triggered = false
         recorder?.stop()
         recorder?.deleteRecording()
-        recorder = nil
         do {
-            try self.recordingSession.setActive(false)
+            try recordingSession.setActive(false);
         } catch {
-            print("asd")
+            self.loadFailUI()
         }
-        recordingSession = nil
     }
     
     func loadRecordingUI() {
-        self.initRecorder()
-        self.start()
+        triggered = false
+        button.setTitle("RESET")
+        if useMic {
+            self.initRecorder()
+            self.start()
+        }
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func loadFailUI() {
@@ -124,15 +121,17 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
     }
     
     func run() {
-        recordingSession = AVAudioSession.sharedInstance()
-        
-        recordingSession.requestRecordPermission () {
-            [unowned self] allowed in
-            if allowed {
-                self.loadRecordingUI()
-            }
-            else {
-                self.loadFailUI()
+        if !running {
+            running = true
+            recordingSession = AVAudioSession.sharedInstance()
+            recordingSession.requestRecordPermission () {
+                [unowned self] allowed in
+                if allowed {
+                    self.loadRecordingUI()
+                }
+                else {
+                    self.loadFailUI()
+                }
             }
         }
     }
@@ -144,17 +143,20 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
     }
     
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        active = true
+        self.run()
     }
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
-    }
-    
-    override func willDisappear() {
-        super.willDisappear()
+        active = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15, execute: {
+            if !active {
+                self.stop()
+            }
+        })
     }
     
 }
