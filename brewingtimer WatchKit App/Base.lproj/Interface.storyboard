@@ -31,7 +31,14 @@
                         <label height="18" alignment="center" verticalAlignment="center" text="0 db" id="YVU-Hx-eTv">
                             <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="13"/>
                         </label>
-                        <imageView height="55" alignment="center" verticalAlignment="center" id="cdk-MN-NCi"/>
+                        <group width="1" alignment="center" verticalAlignment="center" id="wIn-wk-4Ei">
+                            <items>
+                                <imageView height="55" alignment="center" verticalAlignment="center" id="cdk-MN-NCi">
+                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </imageView>
+                            </items>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="0.251953125" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </group>
                     </items>
                     <connections>
                         <outlet property="button" destination="kkT-2t-4hE" id="tLj-gD-u4s"/>

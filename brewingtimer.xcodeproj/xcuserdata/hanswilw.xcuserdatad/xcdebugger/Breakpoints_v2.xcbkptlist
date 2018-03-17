@@ -34,15 +34,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "brewingtimer WatchKit Extension/InterfaceController.swift"
-            timestampString = "542979108.369934"
+            filePath = "brewingtimer/ViewController.swift"
+            timestampString = "543001204.672839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "updateGraph()"
             landmarkType = "7">
          </BreakpointContent>
