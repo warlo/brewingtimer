@@ -9,18 +9,41 @@
 import WatchKit
 import AVFoundation
 import Foundation
+import YOChartImageKit
 
+extension CGRect{
+    init(_ x:CGFloat,_ y:CGFloat,_ width:CGFloat,_ height:CGFloat) {
+        self.init(x:x,y:y,width:width,height:height)
+    }
+    
+}
+extension CGSize{
+    init(_ width:CGFloat,_ height:CGFloat) {
+        self.init(width:width,height:height)
+    }
+}
+extension CGPoint{
+    init(_ x:CGFloat,_ y:CGFloat) {
+        self.init(x:x,y:y)
+    }
+}
 
+    
 class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
     
     @IBOutlet var button: WKInterfaceButton!
     @IBOutlet var timerLabel: WKInterfaceLabel!
     @IBOutlet var decibel: WKInterfaceLabel!
+    @IBOutlet var image: WKInterfaceImage!
     
     var recordingSession: AVAudioSession!
     var recorder : AVAudioRecorder? = nil
     
     @IBOutlet var test: WKInterfaceLabel!
+    
+    var graphValues : [NSNumber] = Array(repeating: 0.0, count: 100)
+    let thresholdArray : [NSNumber] = Array(repeating: NSNumber(value:(threshold + 120.0)), count: 1)
+    var graphTimer : Timer?
     
     @IBAction func click() {
         if !running {
@@ -82,6 +105,35 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
         }
     }
     
+    @objc func updateGraph() {
+        let middle = NSNumber(value: (threshold + 120.0))
+        let chart = YOLineChartImage()
+        
+        chart.strokeWidth = 2.0              // width of line
+        chart.fillColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.5)      // color of area
+        chart.values = graphValues       // chart values
+        chart.maxValue = 180
+        let chart2 = YOLineChartImage()
+        chart.strokeWidth = 2.0
+        chart.strokeColor = UIColor(red:1.00, green:0.0, blue:0.0, alpha:1.0)
+        
+        chart2.values = [middle, middle, middle, middle]
+        // image.smooth = true               // [default] draws a smooth line
+        chart2.maxValue = 180
+        chart2.strokeColor = UIColor(red:0.0, green:1.0, blue:0.0, alpha:1.0)
+        let size = CGSize(WKInterfaceDevice.current().screenBounds.width, 75)
+        UIGraphicsBeginImageContext(size)
+        let frame = CGRect(0,0,size.width, size.height)
+        let drawImg = chart.draw(frame, scale: WKInterfaceDevice.current().screenScale) // draw an image
+        let drawImg2 = chart2.draw(frame, scale: WKInterfaceDevice.current().screenScale)
+        drawImg.draw(in: frame)
+        drawImg2.draw(in: frame, blendMode: .normal, alpha: 1.0)
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        image.setImage(newImage)
+    }
+    
+    
     func loadRecordingUI() {
         triggered = false
         button.setTitle("RESET")
@@ -90,6 +142,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
             self.start()
         }
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        graphTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.updateGraph), userInfo: nil, repeats: true)
     }
     
     func loadFailUI() {
@@ -110,6 +163,8 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
                 }
                 self.updateTimerLabel()
             }
+            graphValues.append(NSNumber(value: (decibels + 120.0)))
+            graphValues.removeFirst()
         } else {
             self.updateTimerLabel()
         }

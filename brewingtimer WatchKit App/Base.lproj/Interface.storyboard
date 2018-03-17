@@ -28,19 +28,21 @@
                         <label height="42" alignment="center" verticalAlignment="center" text="0.0" id="qwe-ku-uzS">
                             <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="48"/>
                         </label>
-                        <label height="42" alignment="center" verticalAlignment="center" text="0 db" id="YVU-Hx-eTv">
-                            <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="20"/>
+                        <label height="18" alignment="center" verticalAlignment="center" text="0 db" id="YVU-Hx-eTv">
+                            <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="13"/>
                         </label>
+                        <imageView height="55" alignment="center" verticalAlignment="center" id="cdk-MN-NCi"/>
                     </items>
                     <connections>
                         <outlet property="button" destination="kkT-2t-4hE" id="tLj-gD-u4s"/>
                         <outlet property="decibel" destination="YVU-Hx-eTv" id="2Ql-8d-mDp"/>
+                        <outlet property="image" destination="cdk-MN-NCi" id="D7W-Gi-cgc"/>
                         <outlet property="timerLabel" destination="qwe-ku-uzS" id="kRx-DM-snc"/>
                         <segue destination="Gxu-0b-dLs" kind="relationship" relationship="nextPage" id="aQ8-Yw-ZsJ"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="351"/>
+            <point key="canvasLocation" x="219.69230769230771" y="350.89743589743591"/>
         </scene>
         <!--Second Interface Controller-->
         <scene sceneID="m3W-NE-hnM">
@@ -48,7 +50,7 @@
                 <controller id="Gxu-0b-dLs" customClass="SecondInterfaceController" customModule="brewingtimer_WatchKit_Extension">
                     <items>
                         <label height="20" alignment="left" text="Sensitivity   -40.0db" baselineAdjustment="alignCenters" minimumScaleFactor="0.40000000000000002" id="yvj-FS-Hel"/>
-                        <slider width="1" alignment="left" value="-30" minimum="-60" maximum="-10" steps="10" id="Clw-dP-P97">
+                        <slider width="1" alignment="left" value="-40" minimum="-80" maximum="0.0" steps="40" id="Clw-dP-P97">
                             <connections>
                                 <action selector="sensitivityChange:" destination="Gxu-0b-dLs" id="pne-P6-MvW"/>
                             </connections>

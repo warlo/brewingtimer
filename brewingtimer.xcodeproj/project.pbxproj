@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		390CC3DA2055587C00F72598 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390CC3D92055587C00F72598 /* Global.swift */; };
 		390CC3DC20557E1900F72598 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390CC3DB20557E1900F72598 /* SecondViewController.swift */; };
+		392433FA205D129000EF7234 /* YOChartImageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392433F9205D129000EF7234 /* YOChartImageKit.framework */; };
+		392433FF205D28CA00EF7234 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392433FE205D28CA00EF7234 /* Queue.swift */; };
 		393132AB203DDCCA00759652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393132AA203DDCCA00759652 /* AppDelegate.swift */; };
 		393132AD203DDCCA00759652 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393132AC203DDCCA00759652 /* ViewController.swift */; };
 		393132B0203DDCCA00759652 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 393132AE203DDCCA00759652 /* Main.storyboard */; };
@@ -87,6 +89,8 @@
 /* Begin PBXFileReference section */
 		390CC3D92055587C00F72598 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		390CC3DB20557E1900F72598 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		392433F9205D129000EF7234 /* YOChartImageKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YOChartImageKit.framework; path = Carthage/Build/watchOS/YOChartImageKit.framework; sourceTree = "<group>"; };
+		392433FE205D28CA00EF7234 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		393132A7203DDCCA00759652 /* brewingtimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = brewingtimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		393132AA203DDCCA00759652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		393132AC203DDCCA00759652 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,12 +145,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				392433FA205D129000EF7234 /* YOChartImageKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		392433F8205D129000EF7234 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				392433F9205D129000EF7234 /* YOChartImageKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3931329E203DDCCA00759652 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +169,7 @@
 				393132D3203DDCCA00759652 /* brewingtimer WatchKit App */,
 				393132E2203DDCCB00759652 /* brewingtimer WatchKit Extension */,
 				393132A8203DDCCA00759652 /* Products */,
+				392433F8205D129000EF7234 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -225,6 +239,7 @@
 				393132EB203DDCCB00759652 /* Info.plist */,
 				393132EC203DDCCB00759652 /* PushNotificationPayload.apns */,
 				390CC3D92055587C00F72598 /* Global.swift */,
+				392433FE205D28CA00EF7234 /* Queue.swift */,
 			);
 			path = "brewingtimer WatchKit Extension";
 			sourceTree = "<group>";
@@ -311,6 +326,7 @@
 				393132DA203DDCCA00759652 /* Sources */,
 				393132DB203DDCCA00759652 /* Frameworks */,
 				393132DC203DDCCA00759652 /* Resources */,
+				392433FB205D130700EF7234 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -421,6 +437,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		392433FB205D130700EF7234 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/YOChartImageKit.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		393132A3203DDCCA00759652 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -454,6 +487,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				393132E8203DDCCB00759652 /* NotificationController.swift in Sources */,
+				392433FF205D28CA00EF7234 /* Queue.swift in Sources */,
 				393132E6203DDCCB00759652 /* ExtensionDelegate.swift in Sources */,
 				393132E4203DDCCB00759652 /* InterfaceController.swift in Sources */,
 				390CC3DA2055587C00F72598 /* Global.swift in Sources */,
@@ -627,6 +661,10 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S83QX8883Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
 				INFOPLIST_FILE = "brewingtimer WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.brewingtimer.watchkitapp.watchkitextension;
@@ -645,6 +683,10 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S83QX8883Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
 				INFOPLIST_FILE = "brewingtimer WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.brewingtimer.watchkitapp.watchkitextension;
