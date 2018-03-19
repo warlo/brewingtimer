@@ -9,9 +9,10 @@
 import Foundation
 
 var time = 0.0
-var threshold : Float = -20.0
+var threshold : Float = -25.0
 var running = false
 var timer : Timer?
 var useMic = true
 var pauseBelowThreshold = true
 var triggered = false
+var active = false

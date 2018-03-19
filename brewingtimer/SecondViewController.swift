@@ -20,7 +20,7 @@ class SecondViewController: UITableViewController {
         micSwitch.isOn = useMic
         pauseLabel.isOn = pauseBelowThreshold
         sensitivitySlider.setValue(threshold, animated: false)
-        decibel.text = String(round(threshold/5)*5) + "db"
+        decibel.text = String(round(threshold/2)*2) + "db"
     }
     
     
@@ -29,7 +29,7 @@ class SecondViewController: UITableViewController {
     }
     
     @IBAction func sensitivityChange(_ sender: UISlider) {
-        decibel.text = String(round(sender.value/5)*5) + "db"
+        decibel.text = String(round(sender.value/2)*2) + "db"
         threshold = sender.value
     }
     

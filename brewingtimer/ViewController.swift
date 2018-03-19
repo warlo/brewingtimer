@@ -192,7 +192,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.settingsButton.setTitle(NSString(string: "\u{2699}\u{0000FE0E}") as String, for: UIControlState.normal)
+        active = true
         self.run()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        active = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15, execute: {
+            if !active {
+                self.stop()
+            }
+        })
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     override func didReceiveMemoryWarning() {
