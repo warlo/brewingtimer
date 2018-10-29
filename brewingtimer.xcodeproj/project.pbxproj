@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		390CC3DA2055587C00F72598 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390CC3D92055587C00F72598 /* Global.swift */; };
 		390CC3DC20557E1900F72598 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390CC3DB20557E1900F72598 /* SecondViewController.swift */; };
 		3911E20B205D6CAE00A845AB /* YOChartImageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3911E20A205D6CAE00A845AB /* YOChartImageKit.framework */; };
 		392433FA205D129000EF7234 /* YOChartImageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392433F9205D129000EF7234 /* YOChartImageKit.framework */; };
@@ -29,6 +28,7 @@
 		393132EA203DDCCB00759652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 393132E9203DDCCB00759652 /* Assets.xcassets */; };
 		3982030920557EAF00ABDF43 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982030820557EAF00ABDF43 /* Global.swift */; };
 		39F15F4D2045F0E20030634F /* SecondInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F15F4C2045F0E20030634F /* SecondInterfaceController.swift */; };
+		9D1796FE2187A13100FDD9C0 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982030820557EAF00ABDF43 /* Global.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +88,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		390CC3D92055587C00F72598 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		390CC3DB20557E1900F72598 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		3911E20A205D6CAE00A845AB /* YOChartImageKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YOChartImageKit.framework; path = Carthage/Build/iOS/YOChartImageKit.framework; sourceTree = "<group>"; };
 		392433F9205D129000EF7234 /* YOChartImageKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YOChartImageKit.framework; path = Carthage/Build/watchOS/YOChartImageKit.framework; sourceTree = "<group>"; };
@@ -167,6 +166,7 @@
 		3931329E203DDCCA00759652 = {
 			isa = PBXGroup;
 			children = (
+				9D1796FD2187A11300FDD9C0 /* Common */,
 				393132A9203DDCCA00759652 /* brewingtimer */,
 				393132BE203DDCCA00759652 /* brewingtimerTests */,
 				393132C9203DDCCA00759652 /* brewingtimerUITests */,
@@ -199,7 +199,6 @@
 				393132B3203DDCCA00759652 /* LaunchScreen.storyboard */,
 				393132B6203DDCCA00759652 /* Info.plist */,
 				390CC3DB20557E1900F72598 /* SecondViewController.swift */,
-				3982030820557EAF00ABDF43 /* Global.swift */,
 			);
 			path = brewingtimer;
 			sourceTree = "<group>";
@@ -242,10 +241,17 @@
 				393132E9203DDCCB00759652 /* Assets.xcassets */,
 				393132EB203DDCCB00759652 /* Info.plist */,
 				393132EC203DDCCB00759652 /* PushNotificationPayload.apns */,
-				390CC3D92055587C00F72598 /* Global.swift */,
 				392433FE205D28CA00EF7234 /* Queue.swift */,
 			);
 			path = "brewingtimer WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		9D1796FD2187A11300FDD9C0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3982030820557EAF00ABDF43 /* Global.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -505,11 +511,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D1796FE2187A13100FDD9C0 /* Global.swift in Sources */,
 				393132E8203DDCCB00759652 /* NotificationController.swift in Sources */,
 				392433FF205D28CA00EF7234 /* Queue.swift in Sources */,
 				393132E6203DDCCB00759652 /* ExtensionDelegate.swift in Sources */,
 				393132E4203DDCCB00759652 /* InterfaceController.swift in Sources */,
-				390CC3DA2055587C00F72598 /* Global.swift in Sources */,
 				39F15F4D2045F0E20030634F /* SecondInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

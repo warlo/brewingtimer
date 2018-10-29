@@ -9,30 +9,28 @@
 import UIKit
 
 class SecondViewController: UITableViewController {
-    
-    @IBOutlet weak var decibel: UILabel!
-    @IBOutlet weak var micSwitch: UISwitch!
-    @IBOutlet weak var pauseLabel: UISwitch!
-    @IBOutlet weak var sensitivitySlider: UISlider!
-    
+    @IBOutlet var decibel: UILabel!
+    @IBOutlet var micSwitch: UISwitch!
+    @IBOutlet var pauseLabel: UISwitch!
+    @IBOutlet var sensitivitySlider: UISlider!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         micSwitch.isOn = useMic
         pauseLabel.isOn = pauseBelowThreshold
         sensitivitySlider.setValue(threshold, animated: false)
-        decibel.text = String(round(threshold/2)*2) + "db"
+        decibel.text = String(round(threshold / 2) * 2) + "db"
     }
-    
-    
-    @IBAction func done(_ sender: UIBarButtonItem) {
+
+    @IBAction func done(_: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     @IBAction func sensitivityChange(_ sender: UISlider) {
-        decibel.text = String(round(sender.value/2)*2) + "db"
+        decibel.text = String(round(sender.value / 2) * 2) + "db"
         threshold = sender.value
     }
-    
+
     @IBAction func toggleMic(_ sender: UISwitch) {
         useMic = sender.isOn
     }
