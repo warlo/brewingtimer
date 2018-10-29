@@ -141,7 +141,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
             self.initRecorder()
             self.start()
         }
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateMeter), userInfo: nil, repeats: true)
         graphTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateGraph), userInfo: nil, repeats: true)
     }
     
@@ -149,7 +149,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
         timerLabel.setText("NO MIC")
     }
     
-    @objc func update() {
+    @objc func updateMeter() {
         if useMic {
             var decibels : Float = -120.0
             if let recorder = recorder {
