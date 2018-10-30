@@ -29,6 +29,10 @@
 		3982030920557EAF00ABDF43 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982030820557EAF00ABDF43 /* Global.swift */; };
 		39F15F4D2045F0E20030634F /* SecondInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F15F4C2045F0E20030634F /* SecondInterfaceController.swift */; };
 		9D1796FE2187A13100FDD9C0 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982030820557EAF00ABDF43 /* Global.swift */; };
+		9D1797002187A73B00FDD9C0 /* MicrophoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1796FF2187A73B00FDD9C0 /* MicrophoneController.swift */; };
+		9D1797012187A73B00FDD9C0 /* MicrophoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1796FF2187A73B00FDD9C0 /* MicrophoneController.swift */; };
+		9D179703218889AB00FDD9C0 /* GraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D179702218889AB00FDD9C0 /* GraphController.swift */; };
+		9D179704218889AB00FDD9C0 /* GraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D179702218889AB00FDD9C0 /* GraphController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +122,8 @@
 		393132EC203DDCCB00759652 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		3982030820557EAF00ABDF43 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		39F15F4C2045F0E20030634F /* SecondInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondInterfaceController.swift; sourceTree = "<group>"; };
+		9D1796FF2187A73B00FDD9C0 /* MicrophoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneController.swift; sourceTree = "<group>"; };
+		9D179702218889AB00FDD9C0 /* GraphController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +256,8 @@
 			isa = PBXGroup;
 			children = (
 				3982030820557EAF00ABDF43 /* Global.swift */,
+				9D1796FF2187A73B00FDD9C0 /* MicrophoneController.swift */,
+				9D179702218889AB00FDD9C0 /* GraphController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -485,8 +493,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3982030920557EAF00ABDF43 /* Global.swift in Sources */,
+				9D1797002187A73B00FDD9C0 /* MicrophoneController.swift in Sources */,
 				390CC3DC20557E1900F72598 /* SecondViewController.swift in Sources */,
 				393132AD203DDCCA00759652 /* ViewController.swift in Sources */,
+				9D179703218889AB00FDD9C0 /* GraphController.swift in Sources */,
 				393132AB203DDCCA00759652 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,7 +525,9 @@
 				393132E8203DDCCB00759652 /* NotificationController.swift in Sources */,
 				392433FF205D28CA00EF7234 /* Queue.swift in Sources */,
 				393132E6203DDCCB00759652 /* ExtensionDelegate.swift in Sources */,
+				9D1797012187A73B00FDD9C0 /* MicrophoneController.swift in Sources */,
 				393132E4203DDCCB00759652 /* InterfaceController.swift in Sources */,
+				9D179704218889AB00FDD9C0 /* GraphController.swift in Sources */,
 				39F15F4D2045F0E20030634F /* SecondInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

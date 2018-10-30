@@ -25,7 +25,7 @@ extension CGRect {
         _ yPoint: CGFloat,
         _ width: CGFloat,
         _ height: CGFloat
-        ) {
+    ) {
         self.init(x: xPoint, y: yPoint, width: width, height: height)
     }
 }

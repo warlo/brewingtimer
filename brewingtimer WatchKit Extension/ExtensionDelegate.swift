@@ -8,12 +8,10 @@
 
 import WatchKit
 
-
 // Set threshold globally to thresholdWatch
 var threshold = thresholdWatch
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
-    
     func applicationDidFinishLaunching() {}
 
     func applicationDidBecomeActive() {}

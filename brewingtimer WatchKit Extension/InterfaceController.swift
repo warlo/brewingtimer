@@ -11,8 +11,7 @@ import Foundation
 import WatchKit
 import YOChartImageKit
 
-
-class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
+class InterfaceController: WKInterfaceController {
     @IBOutlet var button: WKInterfaceButton!
     @IBOutlet var timerLabel: WKInterfaceLabel!
     @IBOutlet var decibel: WKInterfaceLabel!
@@ -23,8 +22,11 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
 
     @IBOutlet var test: WKInterfaceLabel!
 
+    let graph = GraphController()
     var graphValues: [NSNumber] = Array(repeating: 0.0, count: 100)
     var graphTimer: Timer?
+
+    var running: Bool = false
 
     @IBAction func click() {
         if !running {
@@ -55,7 +57,6 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
                 url: getDocumentsDirectory(),
                 settings: settings
             )
-            recorder!.delegate = self
             recorder!.isMeteringEnabled = true
             if !recorder!.prepareToRecord() {
                 loadFailUI()
@@ -92,36 +93,9 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate {
     }
 
     @objc func updateGraph() {
-        let chart = YOLineChartImage()
-        let chart2 = YOLineChartImage()
-
-        chart.strokeWidth = 1.0
-        chart.fillColor = UIColor(red: 0.00, green: 1.00, blue: 0.00, alpha: 0.5)
-        chart.values = graphValues
-        chart.maxValue = 100
-        chart.strokeColor = UIColor(red: 0.00, green: 1.0, blue: 0.0, alpha: 1.0)
-
-        let middle = NSNumber(value: (threshold + 90.0))
-        chart2.values = [middle, middle]
-        chart2.maxValue = 100
-        chart2.strokeColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-
-        let size = CGSize(WKInterfaceDevice.current().screenBounds.width, 75)
-        UIGraphicsBeginImageContext(size)
-        let frame = CGRect(0, 0, size.width, size.height)
-        let drawImg = chart.draw(
-            frame,
-            scale: WKInterfaceDevice.current().screenScale
-        ) // draw an image
-        let drawImg2 = chart2.draw(
-            frame,
-            scale: WKInterfaceDevice.current().screenScale
-        )
-        drawImg.draw(in: frame)
-        drawImg2.draw(in: frame, blendMode: .normal, alpha: 1.0)
-        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        image.setImage(newImage)
+        graph.drawGraph(graphValues: graphValues, width: WKInterfaceDevice.current().screenBounds.width, height: 75, scale: WKInterfaceDevice.current().screenScale) { graphImage in
+            self.image.setImage(graphImage)
+        }
     }
 
     func loadRecordingUI() {
