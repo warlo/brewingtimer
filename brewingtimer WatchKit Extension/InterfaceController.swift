@@ -22,117 +22,16 @@ class InterfaceController: WKInterfaceController {
 
     @IBOutlet var test: WKInterfaceLabel!
 
-    let graph = GraphController()
     var graphValues: [NSNumber] = Array(repeating: 0.0, count: 100)
     var graphTimer: Timer?
 
-    var running: Bool = false
-
-    @IBAction func click() {
-        if !running {
-            run()
-        } else {
-            stop()
-        }
-    }
-
-    func getDocumentsDirectory() -> URL {
-        let fileManager = FileManager.default
-        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentDirectory = urls.first!
-        return documentDirectory.appendingPathComponent("recording.m4a")
-    }
-
-    func initRecorder() {
-        let settings = [
-            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVSampleRateKey: 12000,
-            AVNumberOfChannelsKey: 1,
-            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue,
-        ]
-        do {
-            try recordingSession.setCategory(AVAudioSessionCategoryRecord)
-            try recordingSession.setActive(true)
-            recorder = try AVAudioRecorder(
-                url: getDocumentsDirectory(),
-                settings: settings
-            )
-            recorder!.isMeteringEnabled = true
-            if !recorder!.prepareToRecord() {
-                loadFailUI()
-                print("Error: AVAudioRecorder prepareToRecord failed")
-            }
-        } catch {
-            loadFailUI()
-            print("Error: AVAudioRecorder creation failed")
-        }
-    }
-
-    func start() {
-        recorder?.record()
-        recorder?.updateMeters()
-    }
-
-    func stop() {
-        button.setTitle("START")
-        timer?.invalidate()
-        timer = nil
-        time = 0.0
-        graphTimer?.invalidate()
-        graphTimer = nil
-        timerLabel.setText(String(0.0))
-        running = false
-        triggered = false
-        recorder?.stop()
-        recorder?.deleteRecording()
-        do {
-            try recordingSession.setActive(false)
-        } catch {
-            loadFailUI()
-        }
-    }
-
-    @objc func updateGraph() {
-        graph.drawGraph(graphValues: graphValues, width: WKInterfaceDevice.current().screenBounds.width, height: 75, scale: WKInterfaceDevice.current().screenScale) { graphImage in
-            self.image.setImage(graphImage)
-        }
-    }
-
-    func loadRecordingUI() {
-        triggered = false
-        button.setTitle("RESET")
-        if useMic {
-            initRecorder()
-            start()
-        }
-        timer = Timer.scheduledTimer(
-            timeInterval: 0.1,
-            target: self,
-            selector: #selector(updateMeter),
-            userInfo: nil,
-            repeats: true
-        )
-        graphTimer = Timer.scheduledTimer(
-            timeInterval: 0.1,
-            target: self,
-            selector: #selector(updateGraph),
-            userInfo: nil,
-            repeats: true
-        )
-    }
-
-    func loadFailUI() {
-        timerLabel.setText("NO MIC")
-    }
+    let microphone = MicrophoneController()
+    let graph = GraphController()
 
     @objc func updateMeter() {
         if useMic {
-            var decibels: Float = -120.0
-            if let recorder = recorder {
-                recorder.updateMeters()
-                decibels = recorder.averagePower(forChannel: 0)
-                decibel.setText(String(round(decibels)) + " db")
-            }
+            let decibels: Float = microphone.getDecibels()
+            decibel.setText(String(round(decibels)) + " db")
             if triggered || decibels > threshold {
                 if !pauseBelowThreshold {
                     triggered = true
@@ -146,22 +45,75 @@ class InterfaceController: WKInterfaceController {
         }
     }
 
+    @objc func updateGraph() {
+        graph.drawGraph(graphValues: graphValues, width: WKInterfaceDevice.current().screenBounds.width, height: 75, scale: WKInterfaceDevice.current().screenScale) { graphImage in
+            self.image.setImage(graphImage)
+        }
+    }
+
+    func loadRecordingUI() {
+        triggered = false
+        button.setTitle("RESET")
+
+        timer = Timer.scheduledTimer(
+            timeInterval: 0.1,
+            target: self,
+            selector: #selector(updateMeter),
+            userInfo: nil,
+            repeats: true
+        )
+        if useMic {
+            graphTimer = Timer.scheduledTimer(
+                timeInterval: 0.1,
+                target: self,
+                selector: #selector(updateGraph),
+                userInfo: nil,
+                repeats: true
+            )
+        }
+    }
+
+    func loadFailUI() {
+        timerLabel.setText("NO MIC")
+    }
+
     func updateTimerLabel() {
         time += 0.1
         timerLabel.setText(String(round(10 * time) / 10))
     }
 
-    func run() {
+    func start() {
         if !running {
-            running = true
-            recordingSession = AVAudioSession.sharedInstance()
-            recordingSession.requestRecordPermission { [unowned self] allowed in
-                if allowed {
+            microphone.initRecorder { [unowned self] error in
+                if error == nil {
+                    running = true
                     self.loadRecordingUI()
                 } else {
                     self.loadFailUI()
                 }
             }
+        }
+    }
+
+    func stop() {
+        button.setTitle("START")
+        timer?.invalidate()
+        timer = nil
+        time = 0.0
+        graphTimer?.invalidate()
+        graphTimer = nil
+        timerLabel.setText(String(0.0))
+        running = false
+        triggered = false
+
+        microphone.closeRecorder()
+    }
+
+    @IBAction func click() {
+        if !running {
+            start()
+        } else {
+            stop()
         }
     }
 
@@ -174,7 +126,7 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
         active = true
-        run()
+        start()
     }
 
     override func didDeactivate() {

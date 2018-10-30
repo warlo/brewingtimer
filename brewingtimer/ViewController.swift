@@ -23,6 +23,23 @@ class ViewController: UIViewController {
     let microphone = MicrophoneController()
     let graph = GraphController()
 
+    @objc func update() {
+        if useMic {
+            let decibels: Float = microphone.getDecibels()
+            decibel.text = String(round(decibels)) + " db"
+            if triggered || decibels > threshold {
+                if !pauseBelowThreshold {
+                    triggered = true
+                }
+                updateTimerLabel()
+            }
+            graphValues.append(NSNumber(value: (decibels + 90.0)))
+            graphValues.removeFirst()
+        } else {
+            updateTimerLabel()
+        }
+    }
+
     @objc func updateGraph() {
         graph.drawGraph(graphValues: graphValues, width: image.bounds.width, height: 150, scale: UIScreen.main.scale) { graphImage in
             self.image.image = graphImage
@@ -32,14 +49,14 @@ class ViewController: UIViewController {
     func loadRecordingUI() {
         triggered = false
         button.setTitle("RESET", for: .normal)
+        timer = Timer.scheduledTimer(
+            timeInterval: 0.1,
+            target: self,
+            selector: #selector(update),
+            userInfo: nil,
+            repeats: true
+        )
         if useMic {
-            timer = Timer.scheduledTimer(
-                timeInterval: 0.1,
-                target: self,
-                selector: #selector(update),
-                userInfo: nil,
-                repeats: true
-            )
             graphTimer = Timer.scheduledTimer(
                 timeInterval: 0.1,
                 target: self,
@@ -57,23 +74,6 @@ class ViewController: UIViewController {
     func updateTimerLabel() {
         time += 0.1
         timerLabel.text = String(round(10 * time) / 10)
-    }
-
-    @objc func update() {
-        if useMic {
-            let decibels: Float = microphone.getDecibels()
-            decibel.text = String(round(decibels)) + " db"
-            if triggered || decibels > threshold {
-                if !pauseBelowThreshold {
-                    triggered = true
-                }
-                updateTimerLabel()
-            }
-            graphValues.append(NSNumber(value: (decibels + 90.0)))
-            graphValues.removeFirst()
-        } else {
-            updateTimerLabel()
-        }
     }
 
     func start() {
