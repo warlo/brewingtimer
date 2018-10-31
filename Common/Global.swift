@@ -9,7 +9,12 @@
 import Foundation
 import YOChartImageKit
 
-var time = 0.0
+var overallTime: Double = 0.0
+var time: Double = 0.0
+var started: Date?
+var triggeredDate: Date?
+var aboveThresholdDiff = 0.0
+
 var thresholdPhone: Float = -25.0
 var thresholdWatch: Float = -40.0
 var running = false

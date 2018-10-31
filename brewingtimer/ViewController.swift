@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import Foundation
 import UIKit
 import YOChartImageKit
 
@@ -17,31 +18,40 @@ class ViewController: UIViewController {
     @IBOutlet var settingsButton: UIButton!
     @IBOutlet var image: UIImageView!
 
-    var graphValues: [NSNumber] = Array(repeating: 0.0, count: 100)
     var graphTimer: Timer?
 
     let microphone = MicrophoneController()
     let graph = GraphController()
 
     @objc func update() {
+        overallTime = Date().timeIntervalSince(started!)
         if useMic {
             let decibels: Float = microphone.getDecibels()
-            decibel.text = String(round(decibels)) + " db"
             if triggered || decibels > threshold {
                 if !pauseBelowThreshold {
                     triggered = true
                 }
-                updateTimerLabel()
+
+                if triggeredDate == nil {
+                    triggeredDate = Date()
+                } else {
+                    aboveThresholdDiff = time + Date().timeIntervalSince(triggeredDate!)
+                }
+                updateTimerLabel(time: aboveThresholdDiff)
+            } else {
+                triggeredDate = nil
+                time = aboveThresholdDiff
             }
-            graphValues.append(NSNumber(value: (decibels + 90.0)))
-            graphValues.removeFirst()
         } else {
-            updateTimerLabel()
+            updateTimerLabel(time: overallTime)
         }
     }
 
-    @objc func updateGraph() {
-        graph.drawGraph(graphValues: graphValues, width: image.bounds.width, height: 150, scale: UIScreen.main.scale) { graphImage in
+    func updateGraph() {
+        let decibels: Float = microphone.getDecibels()
+        decibel.text = String(round(decibels)) + " db"
+        graph.updateGraphValues(decibels: decibels)
+        graph.drawGraph(width: image.bounds.width, height: 150, scale: UIScreen.main.scale) { graphImage in
             self.image.image = graphImage
         }
     }
@@ -50,30 +60,21 @@ class ViewController: UIViewController {
         triggered = false
         button.setTitle("RESET", for: .normal)
         timer = Timer.scheduledTimer(
-            timeInterval: 0.1,
-            target: self,
-            selector: #selector(update),
-            userInfo: nil,
+            withTimeInterval: 0.01,
             repeats: true
-        )
-        if useMic {
-            graphTimer = Timer.scheduledTimer(
-                timeInterval: 0.1,
-                target: self,
-                selector: #selector(updateGraph),
-                userInfo: nil,
-                repeats: true
-            )
-        }
+        ) { _ in self.update() }
+        graphTimer = Timer.scheduledTimer(
+            withTimeInterval: 0.1,
+            repeats: true
+        ) { _ in self.updateGraph() }
     }
 
     func loadFailUI() {
         timerLabel.text = "NO MIC"
     }
 
-    func updateTimerLabel() {
-        time += 0.1
-        timerLabel.text = String(round(10 * time) / 10)
+    func updateTimerLabel(time: Double) {
+        timerLabel.text = String(format: "%.02f", time)
     }
 
     func start() {
@@ -81,6 +82,7 @@ class ViewController: UIViewController {
             microphone.initRecorder { [unowned self] error in
                 if error == nil {
                     running = true
+                    started = Date()
                     self.loadRecordingUI()
                 } else {
                     self.loadFailUI()
@@ -99,6 +101,8 @@ class ViewController: UIViewController {
         timerLabel.text = "0.0"
         running = false
         triggered = false
+        started = nil
+        triggeredDate = nil
 
         microphone.closeRecorder()
     }
@@ -119,6 +123,10 @@ class ViewController: UIViewController {
         )
         active = true
         start()
+    }
+
+    override func viewDidAppear(_: Bool) {
+        active = true
     }
 
     override func viewDidDisappear(_ animated: Bool) {

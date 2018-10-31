@@ -8,7 +8,6 @@
 //
 
 import AVFoundation
-import Foundation
 
 class MicrophoneController {
     let recordingSession: AVAudioSession! = AVAudioSession.sharedInstance()

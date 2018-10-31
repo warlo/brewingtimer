@@ -17,36 +17,48 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var decibel: WKInterfaceLabel!
     @IBOutlet var image: WKInterfaceImage!
 
-    var recordingSession: AVAudioSession!
-    var recorder: AVAudioRecorder!
-
-    @IBOutlet var test: WKInterfaceLabel!
-
     var graphValues: [NSNumber] = Array(repeating: 0.0, count: 100)
     var graphTimer: Timer?
 
     let microphone = MicrophoneController()
     let graph = GraphController()
 
+    override init() {
+        super.init()
+        let monospacedFont = UIFont.monospacedDigitSystemFont(ofSize: 48, weight: UIFont.Weight.regular)
+        let monospacedString = NSAttributedString(string: "0.00", attributes: [NSAttributedStringKey.font: monospacedFont])
+        timerLabel.setAttributedText(monospacedString)
+    }
+
     @objc func updateMeter() {
+        overallTime = Date().timeIntervalSince(started!)
         if useMic {
             let decibels: Float = microphone.getDecibels()
-            decibel.setText(String(round(decibels)) + " db")
             if triggered || decibels > threshold {
                 if !pauseBelowThreshold {
                     triggered = true
                 }
-                updateTimerLabel()
+
+                if triggeredDate == nil {
+                    triggeredDate = Date()
+                } else {
+                    aboveThresholdDiff = time + Date().timeIntervalSince(triggeredDate!)
+                }
+                updateTimerLabel(time: aboveThresholdDiff)
+            } else {
+                triggeredDate = nil
+                time = aboveThresholdDiff
             }
-            graphValues.append(NSNumber(value: (decibels + 90.0)))
-            graphValues.removeFirst()
         } else {
-            updateTimerLabel()
+            updateTimerLabel(time: overallTime)
         }
     }
 
-    @objc func updateGraph() {
-        graph.drawGraph(graphValues: graphValues, width: WKInterfaceDevice.current().screenBounds.width, height: 75, scale: WKInterfaceDevice.current().screenScale) { graphImage in
+    func updateGraph() {
+        let decibels: Float = microphone.getDecibels()
+        decibel.setText(String(round(decibels)) + " db")
+        graph.updateGraphValues(decibels: decibels)
+        graph.drawGraph(width: WKInterfaceDevice.current().screenBounds.width, height: 75, scale: WKInterfaceDevice.current().screenScale) { graphImage in
             self.image.setImage(graphImage)
         }
     }
@@ -56,30 +68,24 @@ class InterfaceController: WKInterfaceController {
         button.setTitle("RESET")
 
         timer = Timer.scheduledTimer(
-            timeInterval: 0.1,
-            target: self,
-            selector: #selector(updateMeter),
-            userInfo: nil,
+            withTimeInterval: 0.01,
             repeats: true
-        )
-        if useMic {
-            graphTimer = Timer.scheduledTimer(
-                timeInterval: 0.1,
-                target: self,
-                selector: #selector(updateGraph),
-                userInfo: nil,
-                repeats: true
-            )
-        }
+        ) { _ in self.updateMeter() }
+        graphTimer = Timer.scheduledTimer(
+            withTimeInterval: 0.1,
+            repeats: true
+        ) { _ in self.updateGraph() }
     }
 
     func loadFailUI() {
         timerLabel.setText("NO MIC")
     }
 
-    func updateTimerLabel() {
-        time += 0.1
-        timerLabel.setText(String(round(10 * time) / 10))
+    func updateTimerLabel(time: Double) {
+        let monospacedFont = UIFont.monospacedDigitSystemFont(ofSize: 48, weight: UIFont.Weight.regular)
+        let timeString = String(round(10 * time) / 10)
+        let monospacedString = NSAttributedString(string: timeString, attributes: [NSAttributedStringKey.font: monospacedFont])
+        timerLabel.setAttributedText(monospacedString)
     }
 
     func start() {
@@ -87,6 +93,7 @@ class InterfaceController: WKInterfaceController {
             microphone.initRecorder { [unowned self] error in
                 if error == nil {
                     running = true
+                    started = Date()
                     self.loadRecordingUI()
                 } else {
                     self.loadFailUI()
@@ -105,6 +112,7 @@ class InterfaceController: WKInterfaceController {
         timerLabel.setText(String(0.0))
         running = false
         triggered = false
+        triggeredDate = nil
 
         microphone.closeRecorder()
     }

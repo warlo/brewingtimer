@@ -6,12 +6,18 @@
 //  Copyright © 2018 Hans-Wilhelm Warlo. All rights reserved.
 //
 
-import Foundation
 import YOChartImageKit
 
 class GraphController {
+    var graphValues: [NSNumber] = Array(repeating: 0.0, count: 100)
+    let offset: Float = 90.0
+
+    func updateGraphValues(decibels: Float) {
+        graphValues.removeFirst()
+        graphValues.append(NSNumber(value: (decibels + offset)))
+    }
+
     func drawGraph(
-        graphValues: [NSNumber],
         width: CGFloat,
         height: CGFloat,
         scale: CGFloat,
