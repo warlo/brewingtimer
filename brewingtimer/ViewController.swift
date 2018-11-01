@@ -11,100 +11,46 @@ import Foundation
 import UIKit
 import YOChartImageKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CommonController {
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var button: UIButton!
     @IBOutlet var decibel: UILabel!
     @IBOutlet var settingsButton: UIButton!
     @IBOutlet var image: UIImageView!
 
-    var graphTimer: Timer?
+    var microphone = MicrophoneController()
+    var graph = GraphController()
 
-    let microphone = MicrophoneController()
-    let graph = GraphController()
-
-    @objc func update() {
-        overallTime = Date().timeIntervalSince(started!)
-        if useMic {
-            let decibels: Float = microphone.getDecibels()
-            if triggered || decibels > threshold {
-                if !pauseBelowThreshold {
-                    triggered = true
-                }
-
-                if triggeredDate == nil {
-                    triggeredDate = Date()
-                } else {
-                    aboveThresholdDiff = time + Date().timeIntervalSince(triggeredDate!)
-                }
-                updateTimerLabel(time: aboveThresholdDiff)
-            } else {
-                triggeredDate = nil
-                time = aboveThresholdDiff
-            }
-        } else {
-            updateTimerLabel(time: overallTime)
-        }
+    func getGraph() -> GraphController {
+        return graph
     }
 
-    func updateGraph() {
-        let decibels: Float = microphone.getDecibels()
-        decibel.text = String(round(decibels)) + " db"
-        graph.updateGraphValues(decibels: decibels)
-        graph.drawGraph(width: image.bounds.width, height: 150, scale: UIScreen.main.scale) { graphImage in
-            self.image.image = graphImage
-        }
+    func getMicrophone() -> MicrophoneController {
+        return microphone
     }
 
-    func loadRecordingUI() {
-        triggered = false
-        button.setTitle("RESET", for: .normal)
-        timer = Timer.scheduledTimer(
-            withTimeInterval: 0.01,
-            repeats: true
-        ) { _ in self.update() }
-        graphTimer = Timer.scheduledTimer(
-            withTimeInterval: 0.1,
-            repeats: true
-        ) { _ in self.updateGraph() }
+    func getDimensions() -> (width: CGFloat, height: CGFloat, scale: CGFloat) {
+        return (width: image.bounds.width, height: 150, scale: UIScreen.main.scale)
     }
 
     func loadFailUI() {
         timerLabel.text = "NO MIC"
     }
 
+    func updateDecibelLabel(decibels: Float) {
+        decibel.text = String(round(decibels)) + " db"
+    }
+
     func updateTimerLabel(time: Double) {
         timerLabel.text = String(format: "%.02f", time)
     }
 
-    func start() {
-        if !running {
-            microphone.initRecorder { [unowned self] error in
-                if error == nil {
-                    running = true
-                    started = Date()
-                    self.loadRecordingUI()
-                } else {
-                    self.loadFailUI()
-                }
-            }
-        }
+    func updateImage(image: UIImage) {
+        self.image.image = image
     }
 
-    func stop() {
-        button.setTitle("START", for: .normal)
-        timer?.invalidate()
-        timer = nil
-        time = 0.0
-        graphTimer?.invalidate()
-        graphTimer = nil
-        timerLabel.text = "0.0"
-        running = false
-        triggered = false
-        started = nil
-        triggeredDate = nil
-
-        microphone.closeRecorder()
+    func updateButtonText(text: String) {
+        button.setTitle(text, for: .normal)
     }
 
     @IBAction func click(_: Any?) {
@@ -121,34 +67,25 @@ class ViewController: UIViewController {
             NSString(string: "\u{2699}\u{0000FE0E}") as String,
             for: UIControlState.normal
         )
-        active = true
-        start()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(onDisappearWrapper), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onAppearWrapper), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        onLoad()
     }
 
-    override func viewDidAppear(_: Bool) {
-        active = true
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        active = false
-        // Stop the microphone 15 seconds after leaving app
-        DispatchQueue.main.asyncAfter(
-            deadline: .now() + 15,
-            execute: {
-                if !active {
-                    self.stop()
-                }
-            }
-        )
+    @objc func onAppearWrapper() {
+        onAppear()
+    }
+
+    @objc func onDisappearWrapper() {
+        onDisappear()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

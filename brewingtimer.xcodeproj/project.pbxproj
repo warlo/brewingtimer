@@ -33,6 +33,7 @@
 		9D1797012187A73B00FDD9C0 /* MicrophoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1796FF2187A73B00FDD9C0 /* MicrophoneController.swift */; };
 		9D179703218889AB00FDD9C0 /* GraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D179702218889AB00FDD9C0 /* GraphController.swift */; };
 		9D179704218889AB00FDD9C0 /* GraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D179702218889AB00FDD9C0 /* GraphController.swift */; };
+		9DB2B0DD2189DBC30093C8F1 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2B0DC2189DBC30093C8F1 /* ComplicationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		39F15F4C2045F0E20030634F /* SecondInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondInterfaceController.swift; sourceTree = "<group>"; };
 		9D1796FF2187A73B00FDD9C0 /* MicrophoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneController.swift; sourceTree = "<group>"; };
 		9D179702218889AB00FDD9C0 /* GraphController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphController.swift; sourceTree = "<group>"; };
+		9DB2B0DC2189DBC30093C8F1 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +257,7 @@
 				393132EB203DDCCB00759652 /* Info.plist */,
 				393132EC203DDCCB00759652 /* PushNotificationPayload.apns */,
 				392433FE205D28CA00EF7234 /* Queue.swift */,
+				9DB2B0DC2189DBC30093C8F1 /* ComplicationController.swift */,
 			);
 			path = "brewingtimer WatchKit Extension";
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 			files = (
 				9D1796FE2187A13100FDD9C0 /* Global.swift in Sources */,
 				393132E8203DDCCB00759652 /* NotificationController.swift in Sources */,
+				9DB2B0DD2189DBC30093C8F1 /* ComplicationController.swift in Sources */,
 				392433FF205D28CA00EF7234 /* Queue.swift in Sources */,
 				393132E6203DDCCB00759652 /* ExtensionDelegate.swift in Sources */,
 				9D1797012187A73B00FDD9C0 /* MicrophoneController.swift in Sources */,
@@ -796,7 +800,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = S83QX8883Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -820,7 +824,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = S83QX8883Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

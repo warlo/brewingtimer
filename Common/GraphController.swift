@@ -17,33 +17,37 @@ class GraphController {
         graphValues.append(NSNumber(value: (decibels + offset)))
     }
 
+    func clearGraph() {
+        graphValues = Array(repeating: 0.0, count: 100)
+    }
+
     func drawGraph(
         width: CGFloat,
         height: CGFloat,
         scale: CGFloat,
         completion: @escaping (UIImage) -> Void
     ) {
-        let chart = YOLineChartImage()
-        let chart2 = YOLineChartImage()
+        let waveform = YOLineChartImage()
+        let thresholdLine = YOLineChartImage()
 
-        chart.strokeWidth = 2.0
-        chart.fillColor = UIColor(red: 0.0, green: 1.00, blue: 0.0, alpha: 0.5)
-        chart.strokeColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
-        chart.values = graphValues
-        chart.maxValue = 100
+        waveform.strokeWidth = 2.0
+        waveform.fillColor = UIColor(red: 0.0, green: 1.00, blue: 0.0, alpha: 0.5)
+        waveform.strokeColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
+        waveform.values = graphValues
+        waveform.maxValue = 100
 
         let middle = NSNumber(value: (threshold + 90.0))
-        chart2.values = [middle, middle]
-        chart2.maxValue = 100
-        chart2.strokeColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-        let size = CGSize(width, height)
+        thresholdLine.values = [middle, middle]
+        thresholdLine.maxValue = 100
+        thresholdLine.strokeColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
 
-        UIGraphicsBeginImageContext(size)
+        let size = CGSize(width, height)
         let frame = CGRect(0, 0, size.width, size.height)
-        let drawImg = chart.draw(frame, scale: scale)
-        let drawImg2 = chart2.draw(frame, scale: scale)
-        drawImg.draw(in: frame)
-        drawImg2.draw(in: frame, blendMode: .normal, alpha: 1.0)
+        let drawWaveform = waveform.draw(frame, scale: scale)
+        let drawThresholdLine = thresholdLine.draw(frame, scale: scale)
+        UIGraphicsBeginImageContext(size)
+        drawWaveform.draw(in: frame)
+        drawThresholdLine.draw(in: frame, blendMode: .normal, alpha: 1.0)
         let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
