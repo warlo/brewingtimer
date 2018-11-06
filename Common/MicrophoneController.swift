@@ -69,8 +69,8 @@ class MicrophoneController {
     }
 
     func closeRecorder() {
-        recorder.stop()
-        recorder.deleteRecording()
+        recorder?.stop()
+        recorder?.deleteRecording()
         try! recordingSession.setActive(false)
     }
 }
