@@ -2,25 +2,25 @@
   "images" : [
     {
       "idiom" : "watch",
-      "filename" : "Icon-20@2x.png",
+      "filename" : "Icon-transparent-40.png",
       "screen-width" : "<=145",
       "scale" : "2x"
     },
     {
       "idiom" : "watch",
-      "filename" : "Icon-22@2x.png",
+      "filename" : "Icon-transparent-44.png",
       "screen-width" : ">161",
       "scale" : "2x"
     },
     {
       "idiom" : "watch",
-      "filename" : "Icon-22@2x-1.png",
+      "filename" : "Icon-transparent-45.png",
       "screen-width" : ">145",
       "scale" : "2x"
     },
     {
       "idiom" : "watch",
-      "filename" : "Icon-25@2x.png",
+      "filename" : "Icon-transparent-50.png",
       "screen-width" : ">183",
       "scale" : "2x"
     }

@@ -16,6 +16,8 @@ var aboveThresholdDiff = 0.0
 
 let thresholdPhone: Float = -25.0
 let thresholdWatch: Float = -40.0
+var threshold: Float = 0
+
 var running = false
 
 var timer: Timer?
@@ -58,8 +60,6 @@ func resetGlobalVariables() {
     running = false
     timer?.invalidate()
     timer = nil
-    useMic = true
-    pauseBelowThreshold = true
     triggered = false
     active = false
 }
@@ -130,26 +130,36 @@ extension CommonController {
         updateButtonText(text: "RESET")
     }
 
+    func startTimer() {
+        running = true
+        started = Date()
+        updateTimerLabel(time: 0.00)
+
+        timer = Timer.scheduledTimer(
+            withTimeInterval: 0.01,
+            repeats: true
+        ) { _ in self.updateMeter() }
+        loadRecordingUI()
+    }
+
     func start() {
         if !running {
-            microphone.initRecorder { error in
-                if error == nil {
-                    running = true
-                    started = Date()
-                    self.updateTimerLabel(time: 0.00)
+            if !useMic {
+                startTimer()
+            } else {
+                microphone.initRecorder { error in
+                    if error == nil {
+                        DispatchQueue.main.async {
+                            graphTimer = Timer.scheduledTimer(
+                                withTimeInterval: 0.1,
+                                repeats: true
+                            ) { _ in self.updateGraph() }
 
-                    timer = Timer.scheduledTimer(
-                        withTimeInterval: 0.01,
-                        repeats: true
-                    ) { _ in self.updateMeter() }
-                    graphTimer = Timer.scheduledTimer(
-                        withTimeInterval: 0.1,
-                        repeats: true
-                    ) { _ in self.updateGraph() }
-
-                    self.loadRecordingUI()
-                } else {
-                    self.loadFailUI()
+                            self.startTimer()
+                        }
+                    } else {
+                        self.loadFailUI()
+                    }
                 }
             }
         }

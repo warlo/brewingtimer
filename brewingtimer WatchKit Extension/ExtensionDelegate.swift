@@ -8,15 +8,25 @@
 
 import WatchKit
 
-// Set threshold globally to thresholdWatch
-var threshold = thresholdWatch
-
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
-    func applicationDidFinishLaunching() {}
+    func applicationDidFinishLaunching() {
+        UserDefaults.standard.register(defaults: [
+            "useMic": true,
+            "pauseBelowThreshold": true,
+            "threshold": thresholdWatch,
+        ])
+        useMic = UserDefaults.standard.bool(forKey: "useMic")
+        pauseBelowThreshold = UserDefaults.standard.bool(forKey: "pauseBelowThreshold")
+        threshold = UserDefaults.standard.float(forKey: "threshold")
+    }
 
     func applicationDidBecomeActive() {}
 
-    func applicationWillResignActive() {}
+    func applicationWillResignActive() {
+        UserDefaults.standard.set(useMic, forKey: "useMic")
+        UserDefaults.standard.set(pauseBelowThreshold, forKey: "pauseBelowThreshold")
+        UserDefaults.standard.set(threshold, forKey: "threshold")
+    }
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
         for task in backgroundTasks {

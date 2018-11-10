@@ -27,7 +27,7 @@ class MicrophoneController {
         return documentDirectory.appendingPathComponent("recording.m4a")
     }
 
-    func setupRecorder(completion: @escaping (Error?) -> Void) {
+    func setupRecorder() -> AVAudioSessionErrorCode? {
         try! recordingSession.setCategory(AVAudioSessionCategoryRecord)
         try! recordingSession.setActive(true)
         recorder = try! AVAudioRecorder(
@@ -36,12 +36,11 @@ class MicrophoneController {
         )
         recorder!.isMeteringEnabled = true
         if !recorder!.prepareToRecord() {
-            print("Error: AVAudioRecorder prepareToRecord failed")
-            completion((AVAudioSessionErrorCode.codeUnspecified as! Error))
+            return AVAudioSessionErrorCode.codeUnspecified
         }
-        completion(nil)
         recorder.record()
         recorder.updateMeters()
+        return nil
     }
 
     func getDecibels() -> Float {
@@ -53,16 +52,15 @@ class MicrophoneController {
         return decibels
     }
 
-    func initRecorder(completion: @escaping (Error?) -> Void) {
+    func initRecorder(completion: @escaping (AVAudioSessionErrorCode?) -> Void) {
         if recordingSession!.recordPermission() == .granted {
-            setupRecorder(completion: completion)
+            completion(setupRecorder())
         } else {
             recordingSession.requestRecordPermission { [unowned self] allowed in
                 if allowed {
-                    self.setupRecorder(completion: completion)
+                    completion(self.setupRecorder())
                 } else {
-                    print("err")
-                    completion((AVAudioSessionErrorCode.codeUnspecified as! Error))
+                    completion(AVAudioSessionErrorCode.codeMissingEntitlement)
                 }
             }
         }

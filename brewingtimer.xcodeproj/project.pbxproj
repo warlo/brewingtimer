@@ -27,6 +27,8 @@
 		393132E8203DDCCB00759652 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393132E7203DDCCB00759652 /* NotificationController.swift */; };
 		393132EA203DDCCB00759652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 393132E9203DDCCB00759652 /* Assets.xcassets */; };
 		3982030920557EAF00ABDF43 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982030820557EAF00ABDF43 /* Global.swift */; };
+		39BD4EE42194A4BB003A6BB0 /* FastlaneSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD4EE32194A4BB003A6BB0 /* FastlaneSnapshot.swift */; };
+		39CD76162194A56F0049BA7F /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CD76152194A56F0049BA7F /* SnapshotHelper.swift */; };
 		39F15F4D2045F0E20030634F /* SecondInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F15F4C2045F0E20030634F /* SecondInterfaceController.swift */; };
 		9D1796FE2187A13100FDD9C0 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982030820557EAF00ABDF43 /* Global.swift */; };
 		9D1797002187A73B00FDD9C0 /* MicrophoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1796FF2187A73B00FDD9C0 /* MicrophoneController.swift */; };
@@ -64,6 +66,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 393132DD203DDCCA00759652;
 			remoteInfo = "espressotimer WatchKit Extension";
+		};
+		39BD4EE62194A4BB003A6BB0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3931329F203DDCCA00759652 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 393132A6203DDCCA00759652;
+			remoteInfo = brewingtimer;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -122,6 +131,10 @@
 		393132EB203DDCCB00759652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		393132EC203DDCCB00759652 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		3982030820557EAF00ABDF43 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		39BD4EE12194A4BB003A6BB0 /* FastlaneSnapshot.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneSnapshot.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39BD4EE32194A4BB003A6BB0 /* FastlaneSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneSnapshot.swift; sourceTree = "<group>"; };
+		39BD4EE52194A4BB003A6BB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39CD76152194A56F0049BA7F /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		39F15F4C2045F0E20030634F /* SecondInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondInterfaceController.swift; sourceTree = "<group>"; };
 		9D1796FF2187A73B00FDD9C0 /* MicrophoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneController.swift; sourceTree = "<group>"; };
 		9D179702218889AB00FDD9C0 /* GraphController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphController.swift; sourceTree = "<group>"; };
@@ -159,6 +172,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		39BD4EDE2194A4BB003A6BB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CE0F49260D6A32C1CC073B9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -187,6 +207,7 @@
 				393132C9203DDCCA00759652 /* brewingtimerUITests */,
 				393132D3203DDCCA00759652 /* brewingtimer WatchKit App */,
 				393132E2203DDCCB00759652 /* brewingtimer WatchKit Extension */,
+				39BD4EE22194A4BB003A6BB0 /* FastlaneSnapshot */,
 				393132A8203DDCCA00759652 /* Products */,
 				392433F8205D129000EF7234 /* Frameworks */,
 			);
@@ -200,6 +221,7 @@
 				393132C6203DDCCA00759652 /* brewingtimerUITests.xctest */,
 				393132CF203DDCCA00759652 /* brewingtimer WatchKit App.app */,
 				393132DE203DDCCA00759652 /* brewingtimer WatchKit Extension.appex */,
+				39BD4EE12194A4BB003A6BB0 /* FastlaneSnapshot.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,6 +282,16 @@
 				9DB2B0DC2189DBC30093C8F1 /* ComplicationController.swift */,
 			);
 			path = "brewingtimer WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		39BD4EE22194A4BB003A6BB0 /* FastlaneSnapshot */ = {
+			isa = PBXGroup;
+			children = (
+				39BD4EE32194A4BB003A6BB0 /* FastlaneSnapshot.swift */,
+				39CD76152194A56F0049BA7F /* SnapshotHelper.swift */,
+				39BD4EE52194A4BB003A6BB0 /* Info.plist */,
+			);
+			path = FastlaneSnapshot;
 			sourceTree = "<group>";
 		};
 		9D1796FD2187A11300FDD9C0 /* Common */ = {
@@ -367,13 +399,31 @@
 			productReference = 393132DE203DDCCA00759652 /* brewingtimer WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		39BD4EE02194A4BB003A6BB0 /* FastlaneSnapshot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39BD4EE82194A4BB003A6BB0 /* Build configuration list for PBXNativeTarget "FastlaneSnapshot" */;
+			buildPhases = (
+				39BD4EDD2194A4BB003A6BB0 /* Sources */,
+				39BD4EDE2194A4BB003A6BB0 /* Frameworks */,
+				39BD4EDF2194A4BB003A6BB0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39BD4EE72194A4BB003A6BB0 /* PBXTargetDependency */,
+			);
+			name = FastlaneSnapshot;
+			productName = FastlaneSnapshot;
+			productReference = 39BD4EE12194A4BB003A6BB0 /* FastlaneSnapshot.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		3931329F203DDCCA00759652 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Hans-Wilhelm Warlo";
 				TargetAttributes = {
@@ -399,6 +449,11 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					39BD4EE02194A4BB003A6BB0 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 393132A6203DDCCA00759652;
+					};
 				};
 			};
 			buildConfigurationList = 393132A2203DDCCA00759652 /* Build configuration list for PBXProject "brewingtimer" */;
@@ -419,6 +474,7 @@
 				393132C5203DDCCA00759652 /* brewingtimerUITests */,
 				393132CE203DDCCA00759652 /* brewingtimer WatchKit App */,
 				393132DD203DDCCA00759652 /* brewingtimer WatchKit Extension */,
+				39BD4EE02194A4BB003A6BB0 /* FastlaneSnapshot */,
 			);
 		};
 /* End PBXProject section */
@@ -462,6 +518,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				393132EA203DDCCB00759652 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39BD4EDF2194A4BB003A6BB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +607,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		39BD4EDD2194A4BB003A6BB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39BD4EE42194A4BB003A6BB0 /* FastlaneSnapshot.swift in Sources */,
+				39CD76162194A56F0049BA7F /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -566,6 +638,11 @@
 			isa = PBXTargetDependency;
 			target = 393132DD203DDCCA00759652 /* brewingtimer WatchKit Extension */;
 			targetProxy = 393132E0203DDCCB00759652 /* PBXContainerItemProxy */;
+		};
+		39BD4EE72194A4BB003A6BB0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 393132A6203DDCCA00759652 /* brewingtimer */;
+			targetProxy = 39BD4EE62194A4BB003A6BB0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -801,7 +878,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = S83QX8883Y;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -825,7 +902,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = S83QX8883Y;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -908,6 +985,43 @@
 			};
 			name = Release;
 		};
+		39BD4EE92194A4BB003A6BB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S83QX8883Y;
+				INFOPLIST_FILE = FastlaneSnapshot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.FastlaneSnapshot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = brewingtimer;
+			};
+			name = Debug;
+		};
+		39BD4EEA2194A4BB003A6BB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S83QX8883Y;
+				INFOPLIST_FILE = FastlaneSnapshot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.warlo.FastlaneSnapshot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = brewingtimer;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -961,6 +1075,15 @@
 			buildConfigurations = (
 				393132FE203DDCCB00759652 /* Debug */,
 				393132FF203DDCCB00759652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39BD4EE82194A4BB003A6BB0 /* Build configuration list for PBXNativeTarget "FastlaneSnapshot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39BD4EE92194A4BB003A6BB0 /* Debug */,
+				39BD4EEA2194A4BB003A6BB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

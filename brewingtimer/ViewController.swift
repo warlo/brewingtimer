@@ -35,6 +35,24 @@ class ViewController: UIViewController, CommonController {
 
     func loadFailUI() {
         timerLabel.text = "NO MIC"
+
+        if useMic {
+            let alertController = UIAlertController(title: "Microphone permission",
+                                                    message: "The microphone permission was not authorized. Please enable it in Settings to continue.",
+                                                    preferredStyle: .alert)
+
+            let settingsAction = UIAlertAction(title: "Settings", style: .default) { _ in
+                if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
+                    UIApplication.shared.open(appSettings) { _ in }
+                }
+            }
+            alertController.addAction(settingsAction)
+
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+
+            present(alertController, animated: true, completion: nil)
+        }
     }
 
     func updateDecibelLabel(decibels: Float) {

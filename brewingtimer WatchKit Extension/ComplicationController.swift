@@ -21,22 +21,24 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         switch complication.family {
         case .circularSmall:
             let modTemplate = CLKComplicationTemplateCircularSmallRingImage()
-            modTemplate.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "app_icon")!)
+            modTemplate.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "Complication/Cirular")!)
             template = modTemplate
         case .utilitarianSmall:
             let modTemplate = CLKComplicationTemplateUtilitarianSmallRingImage()
-            modTemplate.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "app_icon")!)
+            modTemplate.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "Complication/Utilitarian")!)
             template = modTemplate
         case .modularSmall:
             let modTemplate = CLKComplicationTemplateModularSmallRingImage()
-            modTemplate.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "app_icon")!)
+            modTemplate.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "Complication/Modular")!)
             template = modTemplate
         case .modularLarge:
             abort()
         case .utilitarianLarge:
             abort()
         case .utilitarianSmallFlat:
-            abort()
+            let modTemplate = CLKComplicationTemplateModularSmallRingImage()
+            modTemplate.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "Complication/Utilitarian")!)
+            template = modTemplate
         case .extraLarge:
             abort()
         case .graphicCorner:
@@ -53,26 +55,31 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
 
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        if complication.family == .circularSmall {
-            let template = CLKComplicationTemplateCircularSmallRingImage()
-            template.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "app_icon")!)
-            let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-            handler(timelineEntry)
-
-        } else if complication.family == .utilitarianSmall {
-            let template = CLKComplicationTemplateUtilitarianSmallRingImage()
-            template.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "app_icon")!)
-            let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-            handler(timelineEntry)
-
-        } else if complication.family == .modularSmall {
-            let template = CLKComplicationTemplateModularSmallRingImage()
-            template.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "app_icon")!)
-            let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-            handler(timelineEntry)
-
-        } else {
-            handler(nil)
+        var template: CLKComplicationTemplate?
+        switch complication.family {
+        case .circularSmall:
+            let modTemplate = CLKComplicationTemplateCircularSmallRingImage()
+            modTemplate.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "Complication/Circular")!)
+            template = modTemplate
+        case .utilitarianSmall:
+            let modTemplate = CLKComplicationTemplateUtilitarianSmallRingImage()
+            modTemplate.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "Complication/Utilitarian")!)
+            template = modTemplate
+        case .modularSmall:
+            let modTemplate = CLKComplicationTemplateModularSmallRingImage()
+            modTemplate.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "Complication/Modular")!)
+            template = modTemplate
+        case .utilitarianSmallFlat:
+            let modTemplate = CLKComplicationTemplateModularSmallRingImage()
+            modTemplate.imageProvider = CLKImageProvider(onePieceImage: UIImage(named: "Complication/Utilitarian")!)
+            template = modTemplate
+        default:
+            template = nil
         }
+        if template != nil {
+            let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template!)
+            handler(timelineEntry)
+        }
+        handler(nil)
     }
 }

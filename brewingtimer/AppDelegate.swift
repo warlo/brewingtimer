@@ -8,21 +8,29 @@
 
 import UIKit
 
-// Set threshold globally to phone
-var threshold = thresholdPhone
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UserDefaults.standard.register(defaults: [
+            "useMic": true,
+            "pauseBelowThreshold": true,
+            "threshold": thresholdPhone,
+        ])
+        useMic = UserDefaults.standard.bool(forKey: "useMic")
+        pauseBelowThreshold = UserDefaults.standard.bool(forKey: "pauseBelowThreshold")
+        threshold = UserDefaults.standard.float(forKey: "threshold")
         return true
     }
 
     func applicationWillResignActive(_: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        UserDefaults.standard.set(useMic, forKey: "useMic")
+        UserDefaults.standard.set(pauseBelowThreshold, forKey: "pauseBelowThreshold")
+        UserDefaults.standard.set(threshold, forKey: "threshold")
     }
 
     func applicationDidEnterBackground(_: UIApplication) {

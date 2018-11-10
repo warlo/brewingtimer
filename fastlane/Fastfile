@@ -22,4 +22,8 @@ platform :ios do
     build_app(scheme: "brewingtimer")
     upload_to_testflight
   end
+  lane :release do
+    build_app(scheme: "brewingtimer")
+    upload_to_app_store
+  end
 end
