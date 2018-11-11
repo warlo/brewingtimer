@@ -75,11 +75,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             template = modTemplate
         default:
             template = nil
+            handler(nil)
         }
         if template != nil {
             let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template!)
             handler(timelineEntry)
         }
-        handler(nil)
     }
 }
