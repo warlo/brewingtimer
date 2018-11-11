@@ -6,24 +6,26 @@
 	<dict>
 		<key>FastlaneSnapshot.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>brewingtimer WatchKit App (Notification).xcscheme</key>
+		<key>brewingtimer WatchKit App (Notification).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>brewingtimer WatchKit App.xcscheme</key>
+		<key>brewingtimer WatchKit App.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>brewingtimer.xcscheme</key>
+		<key>brewingtimer.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
