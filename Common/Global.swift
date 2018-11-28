@@ -26,7 +26,7 @@ var graphTimer: Timer?
 var useMic = true
 var pauseBelowThreshold = true
 var triggered = false
-var active = false
+var asyncWork: DispatchWorkItem?
 
 extension CGRect {
     init(
@@ -61,13 +61,13 @@ func resetGlobalVariables() {
     timer?.invalidate()
     timer = nil
     triggered = false
-    active = false
 }
 
 protocol CommonController {
     var microphone: MicrophoneController { get set }
     var graph: GraphController { get set }
 
+    func getAsyncWork(new: Bool) -> DispatchWorkItem
     func getGraph() -> GraphController
     func getMicrophone() -> MicrophoneController
     func getDimensions() -> (width: CGFloat, height: CGFloat, scale: CGFloat)
@@ -90,6 +90,15 @@ extension CommonController {
     var microphone: MicrophoneController { return getMicrophone() }
 
     var graph: GraphController { return getGraph() }
+
+    func getAsyncWork(new: Bool = false) -> DispatchWorkItem {
+        if new || asyncWork == nil {
+            asyncWork = DispatchWorkItem(block: {
+                self.stop()
+            })
+        }
+        return asyncWork!
+    }
 
     func updateMeter() {
         if useMic {
@@ -176,24 +185,18 @@ extension CommonController {
     }
 
     func onLoad() {
-        active = true
         start()
     }
 
     func onAppear() {
-        active = true
+        getAsyncWork(new: false).cancel()
     }
 
     func onDisappear() {
-        active = false
         // Stop the microphone 15 seconds after leaving app
         DispatchQueue.main.asyncAfter(
             deadline: .now() + 15,
-            execute: {
-                if !active {
-                    self.stop()
-                }
-            }
+            execute: getAsyncWork(new: true)
         )
     }
 }

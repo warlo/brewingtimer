@@ -20,13 +20,6 @@ class InterfaceController: WKInterfaceController, CommonController {
     var microphone = MicrophoneController()
     var graph = GraphController()
 
-    override init() {
-        super.init()
-        let monospacedFont = UIFont.monospacedDigitSystemFont(ofSize: 48, weight: UIFont.Weight.regular)
-        let monospacedString = NSAttributedString(string: "0.00", attributes: [NSAttributedStringKey.font: monospacedFont])
-        timerLabel.setAttributedText(monospacedString)
-    }
-
     func getGraph() -> GraphController {
         return graph
     }
@@ -70,14 +63,10 @@ class InterfaceController: WKInterfaceController, CommonController {
         }
     }
 
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-        // Configure interface objects here.
-    }
-
     override func willActivate() {
         super.willActivate()
         onLoad()
+        onAppear()
     }
 
     override func didDeactivate() {
